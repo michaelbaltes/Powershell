@@ -16,49 +16,13 @@
 # | Michael Baltes   24-11-2014      0.1          Initial Version                                    |
 # | Michael Baltes   19.12.2014      0.2          GUI Anpassng und Erweiterungen                     |
 # | Michael Baltes   05.01.2015      0.3          Funktionen erweitert                               |
-# | Charly Reber     08.01.2015      0.3.1        Funktionen erweitert                               |
 # | Michael Baltes   09.01.2015      0.3.3        zip funktion neu und collect files                 |
 # | Michael Baltes   12.01.2015      0.3.4        Merge Charly (Userinfo) un Michael funktionen      |
 # | Michael Baltes   12.01.2015      0.3.5        Errorhandling angepasst                            |
 # | Michael Baltes   23.01.2015      0.3.7        Fehlerbereinig und Icon                            |
 # | Michael Baltes   23.01.2015      0.3.8        Errorhandling                                      |
 # | Michael Baltes   23.01.2015      0.3.8        Driveletter O:                                     |
-# | Michael Baltes   25.02.2015      0.4.2        Ad Query anpassen und KWP Auslesen added           |
-# | Charly Reber     09.03.2015      0.4.3        get-dsde Funktion erstellt -> Output PSobject      |
-# | Charly Reber     10.03.2015      0.4.4        get-adgroups Funktion angepasst -> Input für       |
-# |                                               Computer ist ein PSObject                          |
-# | Charly Reber     12.03.2015      0.4.5        ProgressBar für Start-Detail hinzugefügt (Nur GUI) |
-# | Charly Reber     27.03.2015      0.4.6        ProgressBar für Start-Detail hinzugefügt Shell     |
-# | Charly Reber     16.04.2015      0.4.7        get-loggedonusr ersetzt mit Get-ComputerSessions   |
-# | Charly Reber     21.04.2015      0.4.8        Get-ComputerSessions dur Win32_Computersystem      |
-# |                                               ersetzt. Username wird nun so ausgelesen.          |
-# |                                               Anpassungen an get-ipconfig                        |
-# | Charly Reber     21.04.2015      0.4.9        Statusanzeige für update-pgb hinzugefügt           |
-# | Charly Reber     21.04.2015      0.5.1        Checkbox für die Auswahl ob das Skript lokal oder  |
-# |                                               remote ausgeführt wird. Funktionen show- und       |
-# |                                               hide-console hinzugefügt. Diese verstecken das     |
-# |                                               Powershellfenster beim Skriptstart und blenden es  |
-# |                                               bei Remote-Verwendung wieder ein.                  |
-# | Charly Reber     21.04.2015      0.5.2        Anpassungen Checkbox, Variable $noRen für          |
-# |                                               CollectFiles hinzugefügt. Nicht nach SCCM          |
-# |                                               umzubenennende Dateien, werden darin gespeichert.  | 
-# | Charly Reber     21.04.2015      1.0          Diverse anpassungen zu Gunsten der                 |
-# |                                               Übersichtlichkeit. Version 1.0 für den GoLive in   |
-# |                                               Absprache mit Fnakhauser Daniel/KAIO definiert.    |
-# | Charly Reber     04.07.2016      1.1          Kleinere Anpassungen: Variabelklammern mit         | 
-# |                                               $ erweitert. Statusbarreihenfolge verschoben       |
-# |                                               Neuerungen für W10 HCP                             |
-# |                                                                                                  |
-# | Charly Reber     13.09.2016      1.1.1        Anpassung für Win10 HCP: checkFiles                |
-# |                                                                                                  |
-# |                                                                                                  |
-# | Charly Reber     15.09.2016      1.2          Anpassung für Win10 HCP: get-adgroups              |
-# |                                               und get-kwpinfo                                    |
-# | Michael Baltes   22.03.2017      1.3          get-kwpinfo angpasst                               |
-# |                                               Zeilen auskommentiert.                             |
-# |                                               Anpassung Path RegEntry, Liste der Log Deiten      |
-# |                                               erweitert                                          |         
-# |                                                                                                  |
+# | Michael Baltes   25.02.2015      0.4.2        Ad Query anpassen und Client Auslesen added        |
 # |                                                                                                  |
 # +--------------------------------------------------------------------------------------------------+
 #>
@@ -92,7 +56,7 @@ function get-checkbox{
     $FormCheck.minimumSize = New-Object System.Drawing.Size(300,230) 
     $FormCheck.maximumSize = New-Object System.Drawing.Size(300,230)
  
-    $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\logo.ico")
+    $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\phbern_git.ico")
     $FormCheck.Icon = $Icon 
 
     # Set the font of the text to be used within the form
@@ -284,7 +248,7 @@ function Show-Gui{
 
         # -------------------------------------------------------------------
         # Icon
-        $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\logo.ico")
+        $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\phbern_git.ico")
         $objForm.Icon = $Icon 
         # -------------------------------------------------------------------
 
@@ -413,7 +377,7 @@ Try{
     $arrBaseInfo+="Last Boot Time: " + $($OS | select @{LABEL='LastBootUpTime';EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}).lastbootuptime
     $arrBaseInfo+="Last Logon User Time: " + $(Get-EventLog -ComputerName $Computer -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
 
-    $arrBaseInfo+="KWP Version: " + $(get-KWPInfo -Computer $Computer).OSImageVersion # Function name changed and get OSImageVersion instead Version, bai 22.03
+    $arrBaseInfo+="PHBern Version: " + $(get-BasicInfo -Computer $Computer).OSImageVersion # Function name changed and get OSImageVersion instead Version, bai 22.03
     
     if($BasicsToFile.isPresent){
         #GUI Infos plus Memory und Disk für Out-File
@@ -1055,12 +1019,12 @@ function get-dsde{
     }
 }
 
-function get-KWPInfo{
+function get-BasicInfo{
       param(
           [Parameter(Mandatory=$True)][string]$Computer
 
       )
-      Write-Log -LogText " +++ Getting KWP data from registry. - (getKWP-Info)" -WriteToFile -LogFilePath $LogFileFullpath -Append
+      Write-Log -LogText " +++ Getting Client data from registry. - (get-BasicInfo)" -WriteToFile -LogFilePath $LogFileFullpath -Append
       try{
         $keypath = 'HKLM:SOFTWARE\PHBern\SCCM' # Path changed bai 22.03
         if($Script:runremote){
@@ -1071,7 +1035,7 @@ function get-KWPInfo{
         return $res
         }
     catch{
-        Write-Log -LogText " --- Getting KWP data. - (get-KWPInfo)" -WriteToFile -LogFilePath $LogFileFullpath -Append
+        Write-Log -LogText " --- Getting Client data. - (get-BasicInfo)" -WriteToFile -LogFilePath $LogFileFullpath -Append
         Write-Log -LogText $_.Exception -WriteToFile -LogFilePath $LogFileFullpath -Append 
     }
 
