@@ -1,3 +1,3 @@
 # Powershell
-All Powershell scripts of me
-New code for GitzHub
+All Powershell scripts I used
+It's a working environment all scripts changes often
