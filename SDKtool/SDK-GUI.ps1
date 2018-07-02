@@ -1,7 +1,7 @@
 ﻿<#
 # +--------------------------------------------------------------------------------------------------+
 # | File    : SDK.ps1                                                                                |
-# | Author  : Michael Baltes/Charly Reber (Bedag Informatik AG)                                      |
+# | Author  : Michael Baltes (PHBern)                                      |
 # | Version : 1.3                                                                                    |
 # | Purpose : Ziel ist es dem Anwender eine GUI mit relevanten Informationen zur Verfügung zu stellen|
 # |           Ausserdem soll es für das ServiceDesk möglich sein Informationen remote zu sammeln     |
