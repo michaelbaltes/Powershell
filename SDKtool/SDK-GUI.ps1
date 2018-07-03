@@ -375,7 +375,7 @@ Try{
     #$arrBaseInfo+="Last Logon User Time: " + (Get-EventLog -ComputerName $Computer -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
 
     $arrBaseInfo+="Last Boot Time: " + $($OS | select @{LABEL='LastBootUpTime';EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}).lastbootuptime
-    $arrBaseInfo+="Last Logon User Time: " + $(Get-EventLog -ComputerName $Computer -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
+    $arrBaseInfo+="Last Logon User Time: " + $(Get-EventLog -ComputerName $Computer.split(".")[0] -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
 
     $arrBaseInfo+="PHBern Version: " + $(get-BasicInfo -Computer $Computer).OSImageVersion # Function name changed and get OSImageVersion instead Version, bai 22.03
     
@@ -730,7 +730,7 @@ function get-ADGroups{
 
 			    if($Userobject){
                     $User=$Userobject.Username
-                    $objADObj=([adsisearcher]"(&(objectCategory=User)(SamAccountName=$User))")
+                    $objADObj=([adsisearcher]"(&(objectClass=User)(SamAccountName=$User))")
                     $DN=$Userobject.DirectoryEntry
                     $objsname=$User
                     $helper= $true
@@ -746,7 +746,7 @@ function get-ADGroups{
 
 			    }
 								
-                $objADObj.SearchRoot=$DN
+                #$objADObj.SearchRoot=$DN
                 $objADObj.SearchScope="Subtree"
                 $objADObj=$objADObj.FindOne()
                 $objname=$objADObj.Properties.distinguishedname
@@ -793,6 +793,7 @@ function get-ADGroups{
             
 
 }
+
 
 function get-ipconfig{
     param(
