@@ -365,6 +365,7 @@ Try{
 
     #GUI Informationen
     $arrBaseInfo+="Benutzername: "     +    $global:usrLogedOn
+    $arrBaseInfo+="Last Logon Username(UPN): " + $(get-UPN -Computer $Computer)
     if($locAdm){$arrBaseInfo+="Lokaler Admin: " +  $locAdm}
     $arrBaseInfo+="Computername: " +    $Computersystem.Name
     $arrBaseInfo+="Computer Modell: " +   $Computersystem.Manufacturer + " - " + $Computersystem.Model
@@ -376,6 +377,7 @@ Try{
 
     $arrBaseInfo+="Last Boot Time: " + $($OS | select @{LABEL='LastBootUpTime';EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}).lastbootuptime
     $arrBaseInfo+="Last Logon User Time: " + $(Get-EventLog -ComputerName $Computer.split(".")[0] -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
+    
 
     $arrBaseInfo+="PHBern Version: " + $(get-BasicInfo -Computer $Computer).OSImageVersion # Function name changed and get OSImageVersion instead Version, bai 22.03
     
@@ -612,6 +614,9 @@ function Get-UserInfos{
         $time=echo $objADObj.properties.lastlogon
         $LogonTime =  [datetime]::FromFileTimeUtc($time)
 
+        # "`r`nLast Logon Username(hier sollte der UPN des Benutzers stehen): `n" | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append
+        # $(get-UPN -Computer $Computer) | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append
+
         "`r`nFolgenden Netzlaufwerke hat der Benutzer angebunden:`n" | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append 
         $Shares | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append
 
@@ -766,8 +771,10 @@ function get-ADGroups{
                     Write-Error "No User has been specified!"
 			    	return
                 }                         
-                                
-
+                Write-Log -LogText " +++ Getting UPN for $objname. - (get-upn)" -WriteToFile -LogFilePath $LogFileFullpath -Append                
+                $arrGrp += "Last Logon Username(hier sollte der UPN des Benutzers stehen): "
+                $arrGrp += $(get-UPN -Computer $Computer)
+                $arrGrp +=""
                 Write-Log -LogText " +++ Getting ADGroups for $objname. - (get-ADGroups)" -WriteToFile -LogFilePath $LogFileFullpath -Append
                 $arrGrp +=@($objsname + " ist Mitglied in folgenden AD-Gruppen:")
                 $arrGrp +=""
@@ -1039,6 +1046,29 @@ function get-BasicInfo{
         Write-Log -LogText " --- Getting Client data. - (get-BasicInfo)" -WriteToFile -LogFilePath $LogFileFullpath -Append
         Write-Log -LogText $_.Exception -WriteToFile -LogFilePath $LogFileFullpath -Append 
     }
+
+}
+
+function get-UPN{
+    # added to read UPN
+    param(
+        [Parameter(Mandatory=$True)][string]$Computer
+
+    )
+    Write-Log -LogText " +++ Getting LastLoggedOnUser data from registry. - (get-UPN)" -WriteToFile -LogFilePath $LogFileFullpath -Append
+    try{
+      $keypath = 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI' # Path changed MBA 2017.07.03
+      if($Script:runremote){
+          $upn=invoke-Command -ScriptBlock {param($path);Get-ItemPropertyvalue -Path $Path -name 'LastLoggedOnUser'} -ArgumentList $keypath -ComputerName $Computer 
+      }else{
+          $upn=Get-ItemPropertyvalue -Path $keypath -Name 'LastLoggedOnUser'
+      }
+      return $upn
+      }
+  catch{
+      Write-Log -LogText " --- Getting LastLoggedOnUser data. - (get-UPN)" -WriteToFile -LogFilePath $LogFileFullpath -Append
+      Write-Log -LogText $_.Exception -WriteToFile -LogFilePath $LogFileFullpath -Append 
+  }
 
 }
 # -----------
