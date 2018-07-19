@@ -1,0 +1,5 @@
+Get-InstalledModule -Name "AzureAD*"  
+# Ja nachdem was für Modul installiert ist. - diese dann deinstallieren!                                                                                                                                                                                                                      
+Uninstall-Module AzureAD                                                                                                                                                                                                                                    
+Get-InstalledModule -Name "AzureAD*"                                                                                                                                                                                                                        
+Install-Module AzureADPreview       
