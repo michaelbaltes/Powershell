@@ -1,7 +1,7 @@
 ﻿<#
 # +--------------------------------------------------------------------------------------------------+
 # | File    : SDK.ps1                                                                                |
-# | Author  : Michael Baltes (PHBern)                                      |
+# | Author  : Michael Baltes/Charly Reber (Bedag Informatik AG)                                      |
 # | Version : 1.3                                                                                    |
 # | Purpose : Ziel ist es dem Anwender eine GUI mit relevanten Informationen zur Verfügung zu stellen|
 # |           Ausserdem soll es für das ServiceDesk möglich sein Informationen remote zu sammeln     |
@@ -16,14 +16,49 @@
 # | Michael Baltes   24-11-2014      0.1          Initial Version                                    |
 # | Michael Baltes   19.12.2014      0.2          GUI Anpassng und Erweiterungen                     |
 # | Michael Baltes   05.01.2015      0.3          Funktionen erweitert                               |
+# | Charly Reber     08.01.2015      0.3.1        Funktionen erweitert                               |
 # | Michael Baltes   09.01.2015      0.3.3        zip funktion neu und collect files                 |
 # | Michael Baltes   12.01.2015      0.3.4        Merge Charly (Userinfo) un Michael funktionen      |
 # | Michael Baltes   12.01.2015      0.3.5        Errorhandling angepasst                            |
 # | Michael Baltes   23.01.2015      0.3.7        Fehlerbereinig und Icon                            |
 # | Michael Baltes   23.01.2015      0.3.8        Errorhandling                                      |
 # | Michael Baltes   23.01.2015      0.3.8        Driveletter O:                                     |
-# | Michael Baltes   25.02.2015      0.4.2        Ad Query anpassen und Client Auslesen added        |
-# | Janick Schnider  17.10.2018      0.4.3        Name und Logo geändert                             |
+# | Michael Baltes   25.02.2015      0.4.2        Ad Query anpassen und KWP Auslesen added           |
+# | Charly Reber     09.03.2015      0.4.3        get-dsde Funktion erstellt -> Output PSobject      |
+# | Charly Reber     10.03.2015      0.4.4        get-adgroups Funktion angepasst -> Input für       |
+# |                                               Computer ist ein PSObject                          |
+# | Charly Reber     12.03.2015      0.4.5        ProgressBar für Start-Detail hinzugefügt (Nur GUI) |
+# | Charly Reber     27.03.2015      0.4.6        ProgressBar für Start-Detail hinzugefügt Shell     |
+# | Charly Reber     16.04.2015      0.4.7        get-loggedonusr ersetzt mit Get-ComputerSessions   |
+# | Charly Reber     21.04.2015      0.4.8        Get-ComputerSessions dur Win32_Computersystem      |
+# |                                               ersetzt. Username wird nun so ausgelesen.          |
+# |                                               Anpassungen an get-ipconfig                        |
+# | Charly Reber     21.04.2015      0.4.9        Statusanzeige für update-pgb hinzugefügt           |
+# | Charly Reber     21.04.2015      0.5.1        Checkbox für die Auswahl ob das Skript lokal oder  |
+# |                                               remote ausgeführt wird. Funktionen show- und       |
+# |                                               hide-console hinzugefügt. Diese verstecken das     |
+# |                                               Powershellfenster beim Skriptstart und blenden es  |
+# |                                               bei Remote-Verwendung wieder ein.                  |
+# | Charly Reber     21.04.2015      0.5.2        Anpassungen Checkbox, Variable $noRen für          |
+# |                                               CollectFiles hinzugefügt. Nicht nach SCCM          |
+# |                                               umzubenennende Dateien, werden darin gespeichert.  | 
+# | Charly Reber     21.04.2015      1.0          Diverse anpassungen zu Gunsten der                 |
+# |                                               Übersichtlichkeit. Version 1.0 für den GoLive in   |
+# |                                               Absprache mit Fnakhauser Daniel/KAIO definiert.    |
+# | Charly Reber     04.07.2016      1.1          Kleinere Anpassungen: Variabelklammern mit         | 
+# |                                               $ erweitert. Statusbarreihenfolge verschoben       |
+# |                                               Neuerungen für W10 HCP                             |
+# |                                                                                                  |
+# | Charly Reber     13.09.2016      1.1.1        Anpassung für Win10 HCP: checkFiles                |
+# |                                                                                                  |
+# |                                                                                                  |
+# | Charly Reber     15.09.2016      1.2          Anpassung für Win10 HCP: get-adgroups              |
+# |                                               und get-kwpinfo                                    |
+# | Michael Baltes   22.03.2017      1.3          get-kwpinfo angpasst                               |
+# |                                               Zeilen auskommentiert.                             |
+# |                                               Anpassung Path RegEntry, Liste der Log Deiten      |
+# |                                               erweitert                                          |         
+# |                                                                                                  |
 # |                                                                                                  |
 # +--------------------------------------------------------------------------------------------------+
 #>
@@ -52,12 +87,12 @@ function get-checkbox{
     $FormCheck.Startposition = "CenterScreen"
     $FormCheck.width = 300
     $FormCheck.height = 230
-    $FormCheck.Text = "PHBern Support Tool"
+    $FormCheck.Text = "SDK - ServiceTool"
     $FormCheck.MaximizeBox = $false
     $FormCheck.minimumSize = New-Object System.Drawing.Size(300,230) 
     $FormCheck.maximumSize = New-Object System.Drawing.Size(300,230)
  
-    $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\itsupport_tool.ico")
+    $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\logo.ico")
     $FormCheck.Icon = $Icon 
 
     # Set the font of the text to be used within the form
@@ -159,7 +194,7 @@ function Show-Gui{
 
         # Gui total
         $objForm = New-Object System.Windows.Forms.Form 
-        $objForm.Text = "PHBern Support Tool"
+        $objForm.Text = "SDK - ServiceTool"
         $objForm.Size = New-Object System.Drawing.Size(900,600) 
         $objForm.StartPosition = "CenterScreen"
         $objForm.MaximizeBox = $false
@@ -249,7 +284,7 @@ function Show-Gui{
 
         # -------------------------------------------------------------------
         # Icon
-        $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\itsupport_tool.ico")
+        $Icon = New-Object system.drawing.icon ($PSScriptRoot + "\logo.ico")
         $objForm.Icon = $Icon 
         # -------------------------------------------------------------------
 
@@ -366,7 +401,6 @@ Try{
 
     #GUI Informationen
     $arrBaseInfo+="Benutzername: "     +    $global:usrLogedOn
-    $arrBaseInfo+="Last Logon Username(UPN): " + $(get-UPN -Computer $Computer)
     if($locAdm){$arrBaseInfo+="Lokaler Admin: " +  $locAdm}
     $arrBaseInfo+="Computername: " +    $Computersystem.Name
     $arrBaseInfo+="Computer Modell: " +   $Computersystem.Manufacturer + " - " + $Computersystem.Model
@@ -377,10 +411,9 @@ Try{
     #$arrBaseInfo+="Last Logon User Time: " + (Get-EventLog -ComputerName $Computer -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
 
     $arrBaseInfo+="Last Boot Time: " + $($OS | select @{LABEL='LastBootUpTime';EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}).lastbootuptime
-    $arrBaseInfo+="Last Logon User Time: " + $(Get-EventLog -ComputerName $Computer.split(".")[0] -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
-    
+    $arrBaseInfo+="Last Logon User Time: " + $(Get-EventLog -ComputerName $Computer -LogName SYSTEM -EntryType Information -Source Microsoft-Windows-Winlogon -Newest 1 -InstanceId 7001).TimeGenerated
 
-    $arrBaseInfo+="PHBern Version: " + $(get-BasicInfo -Computer $Computer).OSImageVersion # Function name changed and get OSImageVersion instead Version, bai 22.03
+    $arrBaseInfo+="KWP Version: " + $(get-KWPInfo -Computer $Computer).OSImageVersion # Function name changed and get OSImageVersion instead Version, bai 22.03
     
     if($BasicsToFile.isPresent){
         #GUI Infos plus Memory und Disk für Out-File
@@ -615,9 +648,6 @@ function Get-UserInfos{
         $time=echo $objADObj.properties.lastlogon
         $LogonTime =  [datetime]::FromFileTimeUtc($time)
 
-        # "`r`nLast Logon Username(hier sollte der UPN des Benutzers stehen): `n" | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append
-        # $(get-UPN -Computer $Computer) | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append
-
         "`r`nFolgenden Netzlaufwerke hat der Benutzer angebunden:`n" | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append 
         $Shares | Out-File $($tmpFolder + "\UserInfo_" + $LoggedOnUser + "_" + $strDate + ".log") -Append
 
@@ -736,7 +766,7 @@ function get-ADGroups{
 
 			    if($Userobject){
                     $User=$Userobject.Username
-                    $objADObj=([adsisearcher]"(&(objectClass=User)(SamAccountName=$User))")
+                    $objADObj=([adsisearcher]"(&(objectCategory=User)(SamAccountName=$User))")
                     $DN=$Userobject.DirectoryEntry
                     $objsname=$User
                     $helper= $true
@@ -752,7 +782,7 @@ function get-ADGroups{
 
 			    }
 								
-                #$objADObj.SearchRoot=$DN
+                $objADObj.SearchRoot=$DN
                 $objADObj.SearchScope="Subtree"
                 $objADObj=$objADObj.FindOne()
                 $objname=$objADObj.Properties.distinguishedname
@@ -772,10 +802,8 @@ function get-ADGroups{
                     Write-Error "No User has been specified!"
 			    	return
                 }                         
-                Write-Log -LogText " +++ Getting UPN for $objname. - (get-upn)" -WriteToFile -LogFilePath $LogFileFullpath -Append                
-                $arrGrp += "Last Logon Username(hier sollte der UPN des Benutzers stehen): "
-                $arrGrp += $(get-UPN -Computer $Computer)
-                $arrGrp +=""
+                                
+
                 Write-Log -LogText " +++ Getting ADGroups for $objname. - (get-ADGroups)" -WriteToFile -LogFilePath $LogFileFullpath -Append
                 $arrGrp +=@($objsname + " ist Mitglied in folgenden AD-Gruppen:")
                 $arrGrp +=""
@@ -801,7 +829,6 @@ function get-ADGroups{
             
 
 }
-
 
 function get-ipconfig{
     param(
@@ -1028,12 +1055,12 @@ function get-dsde{
     }
 }
 
-function get-BasicInfo{
+function get-KWPInfo{
       param(
           [Parameter(Mandatory=$True)][string]$Computer
 
       )
-      Write-Log -LogText " +++ Getting Client data from registry. - (get-BasicInfo)" -WriteToFile -LogFilePath $LogFileFullpath -Append
+      Write-Log -LogText " +++ Getting KWP data from registry. - (getKWP-Info)" -WriteToFile -LogFilePath $LogFileFullpath -Append
       try{
         $keypath = 'HKLM:SOFTWARE\PHBern\SCCM' # Path changed bai 22.03
         if($Script:runremote){
@@ -1044,32 +1071,9 @@ function get-BasicInfo{
         return $res
         }
     catch{
-        Write-Log -LogText " --- Getting Client data. - (get-BasicInfo)" -WriteToFile -LogFilePath $LogFileFullpath -Append
+        Write-Log -LogText " --- Getting KWP data. - (get-KWPInfo)" -WriteToFile -LogFilePath $LogFileFullpath -Append
         Write-Log -LogText $_.Exception -WriteToFile -LogFilePath $LogFileFullpath -Append 
     }
-
-}
-
-function get-UPN{
-    # added to read UPN
-    param(
-        [Parameter(Mandatory=$True)][string]$Computer
-
-    )
-    Write-Log -LogText " +++ Getting LastLoggedOnUser data from registry. - (get-UPN)" -WriteToFile -LogFilePath $LogFileFullpath -Append
-    try{
-      $keypath = 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI' # Path changed MBA 2017.07.03
-      if($Script:runremote){
-          $upn=invoke-Command -ScriptBlock {param($path);Get-ItemPropertyvalue -Path $Path -name 'LastLoggedOnUser'} -ArgumentList $keypath -ComputerName $Computer 
-      }else{
-          $upn=Get-ItemPropertyvalue -Path $keypath -Name 'LastLoggedOnUser'
-      }
-      return $upn
-      }
-  catch{
-      Write-Log -LogText " --- Getting LastLoggedOnUser data. - (get-UPN)" -WriteToFile -LogFilePath $LogFileFullpath -Append
-      Write-Log -LogText $_.Exception -WriteToFile -LogFilePath $LogFileFullpath -Append 
-  }
 
 }
 # -----------
@@ -1335,73 +1339,3 @@ try{
 #----------------------------------------------------------------------------------------------------|
 #endregion
 # MAIN - END
-# SIG # Begin signature block
-# MIIMowYJKoZIhvcNAQcCoIIMlDCCDJACAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
-# gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUC1RRSf+ySh/ulRfTRHq8dTBw
-# iHagggnxMIIEsDCCA2SgAwIBAgITfwAAAAL+w9MSkfWMbQAAAAAAAjBBBgkqhkiG
-# 9w0BAQowNKAPMA0GCWCGSAFlAwQCAQUAoRwwGgYJKoZIhvcNAQEIMA0GCWCGSAFl
-# AwQCAQUAogMCASAwFzEVMBMGA1UEAxMMUEhCZXJuUm9vdENBMB4XDTE4MDIyMTEx
-# NDMyN1oXDTI4MDIyMTExNTMyN1owZDESMBAGCgmSJomT8ixkARkWAmNoMRYwFAYK
-# CZImiZPyLGQBGRYGcGhiZXJuMRUwEwYKCZImiZPyLGQBGRYFaW50cmExHzAdBgNV
-# BAMTFlBIQmVybkludGVybWVkaWF0ZUNBMDEwggEiMA0GCSqGSIb3DQEBAQUAA4IB
-# DwAwggEKAoIBAQCkjSfY2SM3mkMqveV1h4fqwh86bNdcVOe//Pl9UaX7pSVW6jvj
-# 5L1ZBXaC6iXedgxj4zFig8oNAY+Rmn1D293jcdGBv9F1LoVCHVFxd7AFBVXefGOd
-# WFMYSeoCvw6y3UE88DzezIVV08ZGBSizU0bL4BF2y5nXur7pc0Bhcps68hMQTTh0
-# sv0gG3TrZ/aGQvgVQZqwAl9Azs53nYyuDVOnbB4mmoUHCnS6g2KF8GRYrErr7YV3
-# 8iLUcC4yFZOP9uddXCq74YbM0iWNFJIiP8lFXrd/YSmAbOMoHgzYlGIcWTl76ai9
-# H45kiJvoEiHUGTmP+9Cupq1ozT2vr6Vr+UU5AgMBAAGjggE+MIIBOjAQBgkrBgEE
-# AYI3FQEEAwIBADAdBgNVHQ4EFgQUI+RANJgVZgd1opo7Wo+5iQFKuDMwGQYJKwYB
-# BAGCNxQCBAweCgBTAHUAYgBDAEEwCwYDVR0PBAQDAgGGMA8GA1UdEwEB/wQFMAMB
-# Af8wHwYDVR0jBBgwFoAUqPdMZLz0GWJMRLSaIDrSmx6d1tgwSQYDVR0fBEIwQDA+
-# oDygOoY4aHR0cDovL3MtcHJkLWNhLTAwMi5pbnRyYS5waGJlcm4uY2gvcGtpL1BI
-# QmVyblJvb3RDQS5jcmwwYgYIKwYBBQUHAQEEVjBUMFIGCCsGAQUFBzAChkZodHRw
-# Oi8vIHMtcHJkLWNhLTAwMi5pbnRyYS5waGJlcm4uY2gvcGtpL3MtcHJkLWNhLTAw
-# MV9QSEJlcm5Sb290Q0EuY3J0MEEGCSqGSIb3DQEBCjA0oA8wDQYJYIZIAWUDBAIB
-# BQChHDAaBgkqhkiG9w0BAQgwDQYJYIZIAWUDBAIBBQCiAwIBIAOCAQEAl4msKP7E
-# rIbRD7aZFTJLXGgpNnUlRxCVTwMgFGDS+SQubet4AvY90gg3dRZS1bO8PFNrKXBM
-# Jr01VwRj49GvFUce6cxUxjg3USnrATG8IbqqSsTG4mVOwl7mZjMbT8h8VFB5q9mb
-# Ef56RQF/Z83h+zbPlp4d9ttwnsLIEOlkDs4qrEfwKSmZ/dnpWIkkdhP8Y3bWVvKr
-# aWi1vA3AQslg7lpPBoSaahLkxOpfyb1r26ICXMEuQqe6tqSGJD9sQH6t+i+k2zhr
-# vMzd3XJ+Qha91oe2N1nUo9v9T9Y/bRC+PhIwsyPMgF89ZIVaeBDcyowVE6hkSvO6
-# VkyyZIVDM1iO9jCCBTkwggQhoAMCAQICEyAAAAuvEKM43oWOYJUAAAAAC68wDQYJ
-# KoZIhvcNAQELBQAwZDESMBAGCgmSJomT8ixkARkWAmNoMRYwFAYKCZImiZPyLGQB
-# GRYGcGhiZXJuMRUwEwYKCZImiZPyLGQBGRYFaW50cmExHzAdBgNVBAMTFlBIQmVy
-# bkludGVybWVkaWF0ZUNBMDEwHhcNMTgwNzA1MTUwOTUyWhcNMjMwNzA0MTUwOTUy
-# WjCBgDESMBAGCgmSJomT8ixkARkWAmNoMRYwFAYKCZImiZPyLGQBGRYGcGhiZXJu
-# MRUwEwYKCZImiZPyLGQBGRYFaW50cmExFjAUBgNVBAsTDUluZnJhc3RydWt0dXIx
-# EjAQBgNVBAsTCVVTUi1BZG1pbjEPMA0GA1UEAxMGYWRtbWJhMIIBIjANBgkqhkiG
-# 9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsQIpk+SpUfGa//J0+9YvcVVGhK1Xhpr10Q3f
-# 447ITKC+QIzy2OE+4wKS9BnMNdplz5HdMdf5fH4xm0sGaQu+gW9fbrACIBlOSBTi
-# Qs7bp32OcjaKC4Qk7d2KLtDXkO1KUfZJhvqGFlpDB7x+aq/X99IXPL6ZpGuoUBTR
-# qpZNjDE3B/Cb7LS8gdkTA4jCArUEYAj73QKbw0wqgs7Mv5vdIGnmfIrTI1dlmcvV
-# FF2rfx3N9TbNJPBajZHIzMa4QNlEcXcl8S4CWAsDh4ae0C0O3Y2mybjJ2Noy6BlW
-# RKjoVS7hRKZKP6aUXnkMWrxWPWB7g5sLLbJt8Dob8T+nnaqm3QIDAQABo4IBxTCC
-# AcEwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUI1+wqhePUEIetnyGDwZsUh6OY
-# V4E9htiMK4bz5R4CAWQCAQUwEwYDVR0lBAwwCgYIKwYBBQUHAwMwDgYDVR0PAQH/
-# BAQDAgeAMBsGCSsGAQQBgjcVCgQOMAwwCgYIKwYBBQUHAwMwHQYDVR0OBBYEFO3Z
-# 9BKVLL515FBikUdHd+eEPMqgMB8GA1UdIwQYMBaAFCPkQDSYFWYHdaKaO1qPuYkB
-# SrgzMFMGA1UdHwRMMEowSKBGoESGQmh0dHA6Ly9zLXByZC1jYS0wMDIuaW50cmEu
-# cGhiZXJuLmNoL3BraS9QSEJlcm5JbnRlcm1lZGlhdGVDQTAxLmNybDB8BggrBgEF
-# BQcBAQRwMG4wbAYIKwYBBQUHMAKGYGh0dHA6Ly8gcy1wcmQtY2EtMDAyLmludHJh
-# LnBoYmVybi5jaC9wa2kvcy1wcmQtY2EtMDAyLmludHJhLnBoYmVybi5jaF9QSEJl
-# cm5JbnRlcm1lZGlhdGVDQTAxLmNydDArBgNVHREEJDAioCAGCisGAQQBgjcUAgOg
-# EgwQYWRtbWJhQHBoYmVybi5jaDANBgkqhkiG9w0BAQsFAAOCAQEAO9bB4fJD0HEs
-# RaZCdSUZ7LhV4l2DdmOI7+9kx5EZxJgANbxWgfEmhrdLTarXcgi1+MyDBabSy0nx
-# pFwS6sakcUnSXwhC/gKvzAmrCC+R66C3+4AVpddNy0vasULwpM+GaU0Mgh8qmDHQ
-# twoB5ekLNH2i2YamEGIpSU1ehHIXaruGWoZ2PdxUZWhL2a/NjHSL5uha7CB7p5ZM
-# 5uNKDaC9g76xq4uiMmbE7zcUsrcGPtH097HK00rIoyj7eiwPaUkyU+hqK9bDNVDq
-# lCNIPNLeHBujXNB9lH8KYqEAgPd7h7NOLp3kCdXh8JrVGDk2ShEzBGICh6KCyL0m
-# Vu8lGs7+xTGCAhwwggIYAgEBMHswZDESMBAGCgmSJomT8ixkARkWAmNoMRYwFAYK
-# CZImiZPyLGQBGRYGcGhiZXJuMRUwEwYKCZImiZPyLGQBGRYFaW50cmExHzAdBgNV
-# BAMTFlBIQmVybkludGVybWVkaWF0ZUNBMDECEyAAAAuvEKM43oWOYJUAAAAAC68w
-# CQYFKw4DAhoFAKB4MBgGCisGAQQBgjcCAQwxCjAIoAKAAKECgAAwGQYJKoZIhvcN
-# AQkDMQwGCisGAQQBgjcCAQQwHAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARUw
-# IwYJKoZIhvcNAQkEMRYEFD7OK3CzFk44u1LdMkap6EfkB0tDMA0GCSqGSIb3DQEB
-# AQUABIIBAIliSBrheSXhhHIKbk67jmKjGuwOThFP6TfyibpQXZ5U96IvlzjBF9K2
-# FHiiK5v8DTl6oAV3NtjMI7nYVbmatZ26Y/T4UP/1mauP88K8mkx7fI5Wd8W0Pfw7
-# +RM5hqzpGUnAw38Va0jHSn2pbFvV9qPyIkMdRrDL/+kXp81FvUoJPxzkRpDDcDfI
-# Hg5Cza0QRuNaU61MdzJrygwNc5CttqojlzU+04JT07FGGdm01g3icRWIaSLjT8dv
-# mYBvkMX0LySHazbCgwrCuJMaWe85Bc2+nbZO06R30yvbSwt9TifPSf9Ro4I+FM1h
-# lgsHQHq+wX2VZujWe1lo/A7lys53kkI=
-# SIG # End signature block
