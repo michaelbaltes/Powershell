@@ -1,4 +1,4 @@
-function fct-ReadVsph {
+function Read-Vsph {
     $SQLServer = "SRV-VSPH-001" #use Server\Instance for named SQL instances!
     $SQLDBName = "ODS"
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
@@ -19,7 +19,7 @@ function fct-ReadVsph {
 
 
 
-function fct-sortVSPHUser {
+function Update-ADuser {
     param (
         [switch]$staff
     )
@@ -143,6 +143,6 @@ function fct-sortVSPHUser {
         }
 }
 $allvsphuser = $null
-$allvsphuser = fct-ReadVsph
+$allvsphuser = Read-Vsph
 $server = "s-prd-dc-001.intra.phbern.ch"
-$new = fct-sortVSPHUser -staff $true
+Update-ADuser -staff $true
