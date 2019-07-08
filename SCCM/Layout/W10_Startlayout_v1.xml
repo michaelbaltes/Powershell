@@ -1,0 +1,40 @@
+<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
+  <LayoutOptions StartTileGroupCellWidth="6" />
+  <DefaultLayoutOverride>
+    <StartLayoutCollection>
+      <defaultlayout:StartLayout GroupCellWidth="6">
+        <start:Group Name="Office">
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Excel.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="4" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Corporation\Microsoft Teams.lnk" />
+          <start:Tile Size="2x2" Column="2" Row="4" AppUserModelID="Microsoft.Office.Sway_8wekyb3d8bbwe!Microsoft.Sway" />
+          <start:Tile Size="2x2" Column="2" Row="2" AppUserModelID="Microsoft.Office.OneNote_8wekyb3d8bbwe!microsoft.onenoteim" />
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Outlook.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Word.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="2" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk" />
+        </start:Group>
+        <start:Group Name="Internet">
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" />
+          <start:Tile Size="2x2" Column="0" Row="0" AppUserModelID="Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" />
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" />
+        </start:Group>
+        <start:Group Name="Websites">
+          <start:SecondaryTile AppUserModelID="Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" TileID="16073013770" DisplayName="" Size="2x2" Column="0" Row="0" Arguments="-contentTile -tbPinSource Menu -url 0 ms-appx-web://microsoft.microsoftedge/assets/errorpages/dnserror.html?DNSError=0&amp;ErrorStatus=0x800C0005&amp;NetworkStatusSupported=1#https://sap.phbern.ch/" Square150x150LogoUri="ms-appx:///Assets/MicrosoftEdgeSquare150x150.png" Wide310x150LogoUri="ms-appx:///" ShowNameOnSquare150x150Logo="true" ShowNameOnWide310x150Logo="false" BackgroundColor="#ff2672ec" ForegroundText="light" />
+        </start:Group>
+        <start:Group Name="Werkzeuge">
+          <start:Tile Size="2x2" Column="0" Row="0" AppUserModelID="Microsoft.WindowsCalculator_8wekyb3d8bbwe!App" />
+          <start:Tile Size="2x2" Column="4" Row="0" AppUserModelID="Microsoft.Whiteboard_8wekyb3d8bbwe!Whiteboard" />
+          <start:Tile Size="2x2" Column="0" Row="4" AppUserModelID="Microsoft.BingTranslator_8wekyb3d8bbwe!App" />
+          <start:Tile Size="2x2" Column="2" Row="0" AppUserModelID="Microsoft.ScreenSketch_8wekyb3d8bbwe!App" />
+          <start:Tile Size="2x2" Column="0" Row="2" AppUserModelID="Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe!App" />
+          <start:Tile Size="2x2" Column="2" Row="2" AppUserModelID="Microsoft.OfficeLens_8wekyb3d8bbwe!App" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="2" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\File Explorer.lnk" />
+        </start:Group>
+        <start:Group Name="Hilfe">
+          <start:Tile Size="2x2" Column="0" Row="0" AppUserModelID="Microsoft.Getstarted_8wekyb3d8bbwe!App" />
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Accessories\Quick Assist.lnk" />
+        </start:Group>
+      </defaultlayout:StartLayout>
+    </StartLayoutCollection>
+  </DefaultLayoutOverride>
+</LayoutModificationTemplate>

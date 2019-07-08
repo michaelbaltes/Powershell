@@ -1,0 +1,1 @@
+Import-StartLayout -LayoutPath "W10_Startlayout_v1.xml" -MountPath $env:systemdrive\
