@@ -1007,7 +1007,7 @@ function ButtonCreateClick
 		# Create the collection if check box is selected, and move it a collection folder if one is specified in the parameters
 		if ($CheckBoxCreateCollection.Checked)
 		{
-			$Schedule = New-CMSchedule -Start(Random-StartTime) –RecurInterval Days –RecurCount 1
+			$Schedule = New-CMSchedule -Start(Random-StartTime) ï¿½RecurInterval Days ï¿½RecurCount 1
 			if ($RadioButtonDevice.Checked)
 			{
 				$AppCollection = New-CMDeviceCollection -Name $CollectionName -LimitingCollectionName $DeviceLimitingCollection -RefreshType Both -RefreshSchedule $Schedule
