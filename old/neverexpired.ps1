@@ -1,1 +1,0 @@
-﻿get-aduser -server srv-dc-004 -SearchBase "OU=Users,OU=Verwaltung,DC=verwaltung,DC=phbern,DC=local" -filter * | set-aduser -PasswordNeverExpires $true
