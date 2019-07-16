@@ -23,12 +23,15 @@ function Update-ADuser {
     param (
         [switch]$staff
     )
+    $ErrorActionPreference = "Continue"
     
     if($staff)
         {
          foreach($user in $allvsphuser)
             {
-                if ($user.AccountTyp -eq "Verwaltung (INTRA)" -and $user.EmailAddress.GetType().name -ne "DBNull")
+                $t = $user.LoginName
+                $tmpuser = get-aduser -Filter{sAMAccountName -eq $t} -ea SilentlyContinue 
+                if ($user.AccountTyp -eq "Verwaltung (INTRA)" -and $user.EmailAddress.GetType().name -ne "DBNull" -and $tmpuser -ne $null)
                     {
  
                      # clear actual attributes for PHBern
@@ -90,8 +93,14 @@ function Update-ADuser {
                          "DBNull" {Set-ADUser -Server $Server $user.LoginName -replace @{telephoneNumber="keine"}}
                         default {Set-ADUser -Server $Server $user.LoginName -replace @{telephoneNumber=$user.Telefonnummer}}
                         }
+                    switch ($user.Funktion.getType().name) # Funktion
+                        {
+                         "DBNull" {Set-ADUser -Server $Server $user.LoginName -replace @{title="staff (PHBern)"}}  
+                         default {Set-ADUser -Server $Server $user.LoginName -ErrorAction Continue -replace @{title=$user.Funktion;employeeType="staff";extensionAttribute1=$($user.SwissEduPersonUniqueID);employeeNumber=$($user.VSPHPersonUniqueId)}}
+                        }    
                         # title, ext1, employeenr
-                        Set-ADUser -Server $Server $user.LoginName -replace @{title="staff (PHBern)";employeeType="staff";extensionAttribute1=$($user.SwissEduPersonUniqueID);employeeNumber=$($user.VSPHPersonUniqueId)}
+                        #Set-ADUser -Server $Server $user.LoginName -replace @{title="staff (PHBern)";employeeType="staff";extensionAttribute1=$($user.SwissEduPersonUniqueID);employeeNumber=$($user.VSPHPersonUniqueId)}
+                        
 
                     }
 
@@ -137,10 +146,11 @@ function Update-ADuser {
                         default {Set-ADUser -Server $Server $user.LoginName -replace @{telephoneNumber=$user.Telefonnummer}}
                         }
                         # title, ext1, employeenr, department, depNr
-                        Set-ADUser -Server $Server $user.LoginName -replace @{title="staff (NMS)";employeeType="staff";extensionAttribute1=$($user.SwissEduPersonUniqueID);employeeNumber=$($user.VSPHPersonUniqueId);department="NMS";departmentNumber="400"}
+                        Set-ADUser -Server $Server $user.LoginName -ErrorAction SilentlyContinue -replace @{title="staff (NMS)";employeeType="staff";extensionAttribute1=$($user.SwissEduPersonUniqueID);employeeNumber=$($user.VSPHPersonUniqueId);department="NMS";departmentNumber="400"}
                     }
             }   
         }
+  
 }
 $allvsphuser = $null
 $allvsphuser = Read-Vsph
