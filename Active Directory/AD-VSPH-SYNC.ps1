@@ -95,7 +95,7 @@ function Update-ADuser {
                         }
                     switch ($user.Funktion.getType().name) # Funktion
                         {
-                         "DBNull" {Set-ADUser -Server $Server $user.LoginName -replace @{title="staff (PHBern)"}}  
+                         "DBNull" {Set-ADUser -Server $Server $user.LoginName -replace @{title="staff (PHBern)";employeeType="staff";extensionAttribute1=$($user.SwissEduPersonUniqueID);employeeNumber=$($user.VSPHPersonUniqueId)}}  
                          default {Set-ADUser -Server $Server $user.LoginName -ErrorAction Continue -replace @{title=$user.Funktion;employeeType="staff";extensionAttribute1=$($user.SwissEduPersonUniqueID);employeeNumber=$($user.VSPHPersonUniqueId)}}
                         }    
                         # title, ext1, employeenr
