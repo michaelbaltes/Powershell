@@ -30,6 +30,7 @@ $window.Controls.Add($windowTextBox)
          {
          
          $Global:startscript = $windowTextBox.Text.Trim('"')
+         $global:startextern = $true
          
          }
       else
@@ -53,11 +54,12 @@ $window.Controls.Add($windowTextBox)
    $window.Dispose()
    Exit-PSHostProcess
                            })
+                           
 $window.Controls.Add($windowButton)
 $window.Controls.Add($windowButtonCancel)
 [void]$window.ShowDialog()
  
- if($startscript -ne $null)
+ if($startscript -ne $null -and $startextern -eq $true)
  {
    #$window.Close()
    $window.Dispose()
