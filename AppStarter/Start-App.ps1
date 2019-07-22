@@ -1,12 +1,36 @@
 ﻿Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
+function mystarter
+ {
+ param (
+ [string]$cmpath,
+ [boolean]$okclick
+ )
+
+     if($cmpath -ne $null -and $okclick -eq $true)
+     {
+       $window.Close()
+       $window.Dispose()
+     
+     . $startscript
+
+     $startscript = $null
+     }
+     else
+     {
+       $window.Close()
+       $window.Dispose()
+     }
+ }
+
+
 if($env:USERNAME.StartsWith("adm"))
 
 {
 #Add-Type -AssemblyName System.Windows.Forms
 #Add-Type -AssemblyName System.Drawing
-$window = New-Object System.Windows.Forms.Form
+$global:window = New-Object System.Windows.Forms.Form
 $window.Width = 570
 $window.Height = 150
 $window.ShowIcon = $false
@@ -29,8 +53,9 @@ $window.Controls.Add($windowTextBox)
       if ($windowTextBox.Text.StartsWith('"\\s-prd-ps-001\Sources\Applications')  -and $windowTextBox.Text.Contains("SCCM-Create-Application.ps1"))
          {
          
-         $Global:startscript = $windowTextBox.Text.Trim('"')
-         $global:startextern = $true
+         $startscript = $windowTextBox.Text.Trim('"')
+         #$global:startextern = $true
+         mystarter -cmpath $startscript -okclick $true
          
          }
       else
@@ -40,7 +65,7 @@ $window.Controls.Add($windowTextBox)
          $ErrorPath
          }
 
-     $window.Dispose()
+     #$window.Dispose()
      $windowTextBox.Text = $null
   })
  
@@ -51,24 +76,17 @@ $window.Controls.Add($windowTextBox)
   $windowButtonCancel.Text = "Cancel"
   $windowButtonCancel.Add_Click({
 
-   $window.Dispose()
-   Exit-PSHostProcess
+   #$window.Dispose()
+   #Exit-PSHostProcess
+   mystarter -okclick $false
                            })
                            
 $window.Controls.Add($windowButton)
 $window.Controls.Add($windowButtonCancel)
 [void]$window.ShowDialog()
  
- if($startscript -ne $null -and $startextern -eq $true)
- {
-   #$window.Close()
-   $window.Dispose()
- #Start-Process powershell.exe -ArgumentList ("-file $startscript")
- . $startscript
 
- $startscript = $null
- }
-
+ 
 }
 else
 {
