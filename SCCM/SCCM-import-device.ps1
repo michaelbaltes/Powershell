@@ -3,13 +3,12 @@ $SCCMSiteServer = 's-prd-ps-001.intra.phbern.ch'
 $SCCMNamespace = 'Root\SMS\Site_P01'
 $SiteCode = 'p01'
 
-$OSDDeviceCollectionName = "OSD - Windows10_1903-201906-DEV"
+# $OSDDeviceCollectionName = "OSD - Windows10_1903-201906-DEV"
 
 # Import the SCCM powershell module
 $CurrentLocation = Get-Location
 Import-Module(Join-Path $(Split-Path $env:SMS_ADMIN_UI_PATH) ConfigurationManager.psd1)
 Set-Location($SiteCode + ":")
-
 
 
 #region Functions
@@ -52,9 +51,9 @@ function import-cmdevice
                     Start-Sleep -Seconds 5
                     Update-CMDeviceCollection -DeviceCollectionName "All Systems" -Wait -Verbose
 
-                    Add-CMDeviceCollectionDirectMembershipRule -CollectionName $OSDDeviceCollectionName -ResourceId $res.ResourceID
+                    Add-CMDeviceCollectionDirectMembershipRule -CollectionName $DeviceCollectionName -ResourceId $res.ResourceID
 
-                    Update-CMDeviceCollection -DeviceCollectionName $OSDDeviceCollectionName -Wait -Verbose
+                    Update-CMDeviceCollection -DeviceCollectionName $DeviceCollectionName -Wait -Verbose
 
                     New-CMDeviceVariable -DeviceName $DeviceName -VariableName "PHBProfile" -VariableValue $SWProfile -IsMask 0 
                     if (get-cmdeviceVariable -ResourceId $res.ResourceID -VariableName "PHBProfile")
@@ -120,14 +119,20 @@ Function Update-CMDeviceCollection
 #Start App~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     function Start-import {
         param (
+            $DeviceCollectionName,
             $MACAddress,
             $DeviceName,
             $SWProfile
         )
-        import-cmdevice -DeviceCollectionName "OSD - Windows10_1903-201906-DEV" -DeviceName $DeviceName -MACAddress $MACAddress -SWProfile $SWProfile
+        import-cmdevice -DeviceCollectionName $DeviceCollectionName -DeviceName $DeviceName -MACAddress $MACAddress -SWProfile $SWProfile
         
     }
 # ----------------------------------------------------------------------------- 
+
+function Get-CollectionInfos {
+
+    Get-CMCollection -CollectionType Device | select name, CollectionId | ?{$_.name -like "*OSD*"}
+}
 #endregion Functions
 
 
@@ -242,7 +247,21 @@ function Show-Gui{
         $txtboxMAC.Font = $Font1
         $objForm.Controls.Add($txtboxMAC)
         #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        
+        # Form Dropdown for Computer~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        $Dropdown = New-Object System.Windows.Forms.ComboBox
+        $Dropdown.Location = New-Object System.Drawing.Size(20,350)
+        $Dropdown.Size = New-Object System.Drawing.Size(300,50)
+        $Dropdown.AutoSize = $True
+        $Font1 = New-Object System.Drawing.Font("Arial",11,[System.Drawing.FontStyle]::Regular)
+        $Dropdown.Font = $Font1
+        $Dropdown.Text = "Select an Staging Collection"
+
+        #Add Collection to dropdown
+        foreach ($i in Get-CollectionInfos) {$Dropdown.Items.Add($i.name)}
+       
+        $objForm.Controls.Add($Dropdown)
+
+        #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         # Group for Computer~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         $GrpInfo = New-Object System.Windows.Forms.GroupBox
         $GrpInfo.Location = New-Object System.Drawing.Size(20,15)
@@ -258,12 +277,17 @@ function Show-Gui{
         $OKButtonStart.Location = New-Object System.Drawing.Size(450,350)
         $OKButtonStart.Size = New-Object System.Drawing.Size(200,80)
         $OKButtonStart.Text = "Start import"
+      
         $OKButtonStart.Add_Click({
-                                 if ($chkVerwaltung.Checked){Start-import -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Verwaltung" }
-                                 if ($chkDozierende.Checked){Start-import -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Dozierende" }
-                                 if ($chkUltramobile.Checked){Start-import -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Verwaltung" }
-                                 if ($chkPool.Checked){Start-import -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Pool-1" }
-                                })
+                            if($Dropdown.text -ne "Select an Staging Collection"){
+                                 Set-Location P01:
+                                 if ($chkVerwaltung.Checked){Start-import -DeviceCollectionName $dropdown.text  -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Verwaltung" }
+                                 if ($chkDozierende.Checked){Start-import -DeviceCollectionName $dropdown.text -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Dozierende" }
+                                 if ($chkUltramobile.Checked){Start-import -DeviceCollectionName $dropdown.text -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Verwaltung" }
+                                 if ($chkPool.Checked){Start-import -DeviceCollectionName $dropdown.text -DeviceName $txtboxPC.Text -MACAddress $txtboxMAC.Text -SWProfile "Pool-1" }
+                                }
+                                else{ [System.Windows.Forms.MessageBox]::Show("Bitte Collection auswaehlen!","Collection Name",0)}
+                            })
 
         $objForm.Controls.Add($OKButtonStart)
 
@@ -279,6 +303,4 @@ function Show-Gui{
 
 #region MAIN
 
-    Show-Gui -Gui
-
-    
+    Show-Gui -Gui   

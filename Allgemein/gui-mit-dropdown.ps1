@@ -1,4 +1,4 @@
-#Start App~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+﻿#Start App~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function Start-import {
     param (
         $MACAddress,
@@ -136,14 +136,20 @@ if($Gui){
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         # Form Dropdown for Computer~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        $GrpInfo = New-Object System.Windows.Forms.ComboBox
-        $GrpInfo.Location = New-Object System.Drawing.Size(20,15)
-        $GrpInfo.Size = New-Object System.Drawing.Size(350,350)
-        $GrpInfo.AutoSize = $True
+        $Dropdown = New-Object System.Windows.Forms.ComboBox
+        $Dropdown.Location = New-Object System.Drawing.Size(20,350)
+        $Dropdown.Size = New-Object System.Drawing.Size(300,50)
+        $Dropdown.AutoSize = $True
         $Font1 = New-Object System.Drawing.Font("Arial",11,[System.Drawing.FontStyle]::Regular)
-        $GrpInfo.Font = $Font1
-        $GrpInfo.Text = "Collection Name"
-        $objForm.Controls.Add($GrpInfo)
+        $Dropdown.Font = $Font1
+        $Dropdown.Text = "Collection Name"
+
+        #Add Item List to Dropdown
+        [array]$Coll = "OSD1","OSD2"
+
+        foreach ($i in $coll){$Dropdown.Items.Add($i)}
+
+        $objForm.Controls.Add($Dropdown)
         #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     $OKButtonStart = New-Object System.Windows.Forms.Button
@@ -167,3 +173,5 @@ if($Gui){
     
 }
 }
+
+Show-Gui -Gui 
