@@ -1,0 +1,923 @@
+﻿**********************
+nStart der Windows PowerShell-Aufzeichnung
+Startzeit: 20201119130958
+Benutzername: DELL7390\tobia
+RunAs-Benutzer: DELL7390\tobia
+Konfigurationsname: 
+Computer: DELL7390 (Microsoft Windows NT 10.0.19042.0)
+Hostanwendung: C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Prozess-ID: 15128
+PSVersion: 5.1.19041.610
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.610
+BuildVersion: 10.0.19041.610
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Agent Activation Runtime_633010 (AarSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Adobe Acrobat Update Service (AdobeARMservice)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AllJoyn-Routerdienst (AJRouter)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gatewaydienst auf Anwendungsebene (ALG)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anwendungsidentität (AppIDSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anwendungsinformationen (Appinfo)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anwendungsverwaltung (AppMgmt)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "App-Vorbereitung (AppReadiness)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft App-V Client (AppVClient)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AppX-Bereitstellungsdienst (AppXSVC) (AppXSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AssignedAccessManager-Dienst (AssignedAccessManagerSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Audio-Endpunkterstellung (AudioEndpointBuilder)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Audio (Audiosrv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Mobilfunkzeit (autotimesvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "ActiveX-Installer (AxInstSV) (AxInstSV)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdienst für GameDVR und Übertragungen_633010 (BcastDVRUserService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "BitLocker-Laufwerkverschlüsselungsdienst (BDESVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Basisfiltermodul (BFE)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intelligenter Hintergrundübertragungsdienst (BITS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Bluetooth-Unterstützungsdienst für Benutzer_633010 (BluetoothUserService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Infrastrukturdienst für Hintergrundaufgaben (BrokerInfrastructure)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Computerbrowser (Browser)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Bluetooth-Audiogateway-Dienst (BTAGService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AVCTP-Dienst (BthAvctpSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Bluetooth-Unterstützungsdienst (bthserv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Manager-Dienst für den Funktionszugriff (camsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CaptureService_633010 (CaptureService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zwischenablage-Benutzerdienst_633010 (cbdhsvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Plattformdienst für verbundene Geräte (CDPSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdienst für die Plattform für verbundene Geräte_633010 (CDPUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zertifikatverteilung (CertPropSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Office Click-to-Run Service (ClickToRunSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Clientlizenzdienst (ClipSVC) (ClipSVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "COM+-Systemanwendung (COMSysApp)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "ConsentUX_633010 (ConsentUxUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CoreMessaging (CoreMessagingRegistrar)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Content Protection HDCP Service (cplspcon)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CredentialEnrollmentManagerUserSvc_633010 (CredentialEnrollmentManagerUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Kryptografiedienste (CryptSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Offlinedateien (CscService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DCOM-Server-Prozessstart (DcomLaunch)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell Command | Power Manager Notify (dcpm-notify)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Laufwerke optimieren (defragsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell Digital Delivery Services (Dell Digital Delivery Services)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell SupportAssist Remediation (Dell SupportAssist Remediation)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell.CommandPowerManager.Service (Dell.CommandPowerManager.Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell Client Management Service (DellClientManagementService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DeviceAssociationBroker_633010 (DeviceAssociationBrokerSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gerätezuordnungsdienst (DeviceAssociationService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Geräteinstallationsdienst (DeviceInstall)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DevicePicker_633010 (DevicePickerUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DevicesFlow_633010 (DevicesFlowUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Broker für DevQuery-Hintergrundermittlung (DevQueryBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DHCP-Client (Dhcp)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Standardsammlungsdienst des Microsoft(R)-Diagnose-Hubs (diagnosticshub.standardcollector.service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnostic Execution Service (diagsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzererfahrungen und Telemetrie im verbundenen Modus (DiagTrack)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anzeigerichtliniendienst (DispBrokerDesktopSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anzeigeverbesserungsdienst (DisplayEnhancementService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Registrierungsdienst für die Geräteverwaltung (DmEnrollmentSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WAP-Push-Nachrichten Routing-Dienst (Wireless Application Protocol) für die Geräteverwaltung (dmwappushservice)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DNS-Client (Dnscache)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Übermittlungsoptimierung (DoSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Automatische Konfiguration (verkabelt) (dot3svc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnoserichtliniendienst (DPS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Geräteinstallations-Manager (DsmSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Datenfreigabedienst (DsSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Datennutzung (DusmSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Extensible Authentication-Protokoll (Eaphost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Edge Update Service (edgeupdate) (edgeupdate)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Edge Update Service (edgeupdatem) (edgeupdatem)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verschlüsselndes Dateisystem (EFS) (EFS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Eingebetteter Modus (embeddedmode)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verwaltungsdienst für Unternehmens-Apps (EntAppSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Dynamic Tuning service (esifsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Ereignisprotokoll (EventLog)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "COM+-Ereignissystem (EventSystem)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Fax (Fax)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Funktionssuchanbieter-Host (fdPHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Funktionssuche-Ressourcenveröffentlichung (FDResPub)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dateiversionsverlauf-Dienst (fhsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Dienst für Schriftartencache (FontCache)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Presentation Foundation-Schriftartcache 3.0.0.0 (FontCache3.0.0.0)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Kamera-FrameServer (FrameServer)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Google Chrome Elevation Service (GoogleChromeElevationService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gruppenrichtlinienclient (gpsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "GraphicsPerfSvc (GraphicsPerfSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Google Update-Dienst (gupdate) (gupdate)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Google Update-Dienst (gupdatem) (gupdatem)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) RST HFC Disable Service (HfcDisableService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Eingabegerätedienst (hidserv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "HV-Hostdienst (HvHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Optane(TM) Memory Service (iaStorAfsService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Dienst für mobile Hotspots (icssvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Graphics Command Center Service (igccservice)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) HD Graphics Control Panel Service (igfxCUIService2.0.0.0)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "IKE- und AuthIP IPsec-Schlüsselerstellungsmodule (IKEEXT)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Store-Installationsdienst (InstallService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Capability Licensing Service TCP IP Interface (Intel(R) Capability Licensing Service TCP IP Interface)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) TPM Provisioning Service (Intel(R) TPM Provisioning Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Audio Service (IntelAudioService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "IP-Hilfsdienst (iphlpsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Konfigurationsdienst für die IP-Übersetzung (IpxlatCfgSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Dynamic Application Loader Host Interface Service (jhi_service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Smart AP Selection Service (KAPSService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CNG-Schlüsselisolation (KeyIso)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Analytics Service (Killer Analytics Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Network Service (Killer Network Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Dynamic Bandwidth Management (KNDBWM)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "KtmRm für Distributed Transaction Coordinator (KtmRm)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Server (LanmanServer)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Arbeitsstationsdienst (LanmanWorkstation)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Geolocation-Dienst (lfsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Lizenz-Manager-Dienst (LicenseManager)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verbindungsschicht-Topologieerkennungs-Zuordnungsprogramm (lltdsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "TCP/IP-NetBIOS-Hilfsdienst (lmhosts)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Management and Security Application Local Management Service (LMS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Lokaler Sitzungs-Manager (LSM)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sprachumgebungsdienst (LxpSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Manager für heruntergeladene Karten (MapsBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Malwarebytes Service (MBAMService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "MessagingService_633010 (MessagingService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Mixed Reality OpenXR Service (MixedRealityOpenXRSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Mozilla Maintenance Service (MozillaMaintenance)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Defender Firewall (mpssvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Distributed Transaction Coordinator (MSDTC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft iSCSI-Initiator-Dienst (MSiSCSI)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Installer (msiserver)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Natürliche Authentifizierung (NaturalAuthentication)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkkonnektivitäts-Assistent (NcaSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkverbindungsbroker (NcbService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Autom. Setup von Geräten, die mit dem Netzwerk verbunden sind (NcdAutoSetup)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Net Driver HPZ12 (Net Driver HPZ12)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anmeldedienst (Netlogon)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkverbindungen (Netman)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerklistendienst (netprofm)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkeinrichtungsdienst (NetSetupSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Net.Tcp-Portfreigabedienst (NetTcpPortSharing)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Passport-Container (NgcCtnrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Passport (NgcSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "NLA (Network Location Awareness) (NlaSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkspeicher-Schnittstellendienst (nsi)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Synchronisierungshost_633010 (OneSyncSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Office  Source Engine (ose)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Peernetzwerkidentitäts-Manager (p2pimsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Peernetzwerk-Gruppenzuordnung (p2psvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Programmkompatibilitäts-Assistent-Dienst (PcaSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "BranchCache (PeerDistSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Perception Simulation Service (perceptionsimulation)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Leistungsindikator-DLL-Host (PerfHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Telefondienst (PhoneSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Kontaktdaten_633010 (PimIndexMaintenanceSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Leistungsprotokolle und -warnungen (pla)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Plug & Play (PlugPlay)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Pml Driver HPZ12 (Pml Driver HPZ12)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "PNRP-Computernamenveröffentlichungs-Dienst (PNRPAutoReg)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Peer Name Resolution-Protokoll (PNRPsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "IPsec-Richtlinien-Agent (PolicyAgent)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Stromversorgung (Power)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Druckererweiterungen und -benachrichtigungen (PrintNotify)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "PrintWorkflow_633010 (PrintWorkflowUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerprofildienst (ProfSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows PushToInstall-Dienst (PushToInstall)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verbessertes Windows-Audio/Video-Streaming (QWAVE)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verwaltung für automatische RAS-Verbindung (RasAuto)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "RAS-Verbindungsverwaltung (RasMan)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Routing und RAS (RemoteAccess)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Remoteregistrierung (RemoteRegistry)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für Einzelhandelsdemos (RetailDemo)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Funkverwaltungsdienst (RmSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "RPC-Endpunktzuordnung (RpcEptMapper)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "RPC-Locator (RpcLocator)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Remoteprozeduraufruf (RPC) (RpcSs)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Storage Middleware Service (RstMwService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Realtek Audio Universal Service (RtkAudioUniversalService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sicherheitskonto-Manager (SamSs)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Smartcard (SCardSvr)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Smartcard-Geräteaufzählungsdienst (ScDeviceEnum)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Aufgabenplanung (Schedule)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Richtlinie zum Entfernen der Scmartcard (SCPolicySvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Sicherung (SDRSVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sekundäre Anmeldung (seclogon)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Sicherheitsdienst (SecurityHealthService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zahlungs- und NFC/SE-Manager (SEMgrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benachrichtigungsdienst für Systemereignisse (SENS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Defender Advanced Threat Protection-Dienst (Sense)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sensordatendienst (SensorDataService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sensordienst (SensorService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sensorüberwachungsdienst (SensrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Konfiguration für Remotedesktops (SessionEnv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Session Detection (SessionSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Broker für Laufzeitüberwachung der Systemüberwachung (SgrmBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gemeinsame Nutzung der Internetverbindung (SharedAccess)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für räumliche Daten (SharedRealitySvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Shellhardwareerkennung (ShellHWDetection)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Shared PC Account Manager (shpamsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft-SMP für Speicherplätze (smphost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Windows SMS-Routerdienst. (SmsRouter)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SNMP-Trap (SNMPTRAP)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Perception Service (spectrum)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Druckwarteschlange (Spooler)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Software Protection (sppsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SQL Server VSS Writer (SQLWriter)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SSDP-Suche (SSDPSRV)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "OpenSSH Authentication Agent (ssh-agent)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "OpenSSH SSH Server (sshd)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SSTP-Dienst (SstpSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "StateRepository-Dienst (StateRepository)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Bilderfassung (WIA) (stisvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Speicherdienst (StorSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Echtzeit-Datenträgerprüfung (svsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft-Softwareschattenkopie-Anbieter (swprv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Synology Active Backup for Business Service (Synology Active Backup for Business Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SysMain (SysMain)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Systemereignissebroker (SystemEventsBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für Bildschirmtastatur und Schreibbereich (TabletInputService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Telefonie (TapiSrv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Thunderbolt(TM) Application Launcher (TbtHostControllerService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Remotedesktopdienste (TermService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Designs (Themes)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Storage Tiers Management (TieringEngineService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zeitbroker (TimeBrokerSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Web Account Manager (TokenBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Überwachung verteilter Verknüpfungen (Client) (TrkWks)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für empfohlene Problembehandlungen (TroubleshootingSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Modules Installer (TrustedInstaller)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Automatische Zeitzonenaktualisierung (tzautoupdate)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Udk-Benutzerdienst_633010 (UdkUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "User Experience Virtualization-Dienst (UevAgentService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anschlussumleitung für Remotedesktopdienst im Benutzermodus (UmRdpService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdatenspeicher _633010 (UnistoreSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "UPnP-Gerätehost (upnphost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdatenzugriff_633010 (UserDataSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzer-Manager (UserManager)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Update-Orchestrator-Dienst (UsoSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Volumetric Audio Compositor-Dienst (VacSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anmeldeinformationsverwaltung (VaultSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Virtueller Datenträger (vds)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Gastdienstschnittstelle (vmicguestinterface)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Taktdienst (vmicheartbeat)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Datenaustauschdienst (vmickvpexchange)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Remotedesktopvirtualisierungsdienst (vmicrdv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Dienst zum Herunterfahren des Gasts (vmicshutdown)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Dienst für Zeitsynchronisierung (vmictimesync)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V PowerShell Direct-Dienst (vmicvmsession)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Volumeschattenkopie-Anforderer (vmicvss)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Volumeschattenkopie (VSS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Visual Studio Standard Collector Service 150 (VSStandardCollectorService150)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Zeitgeber (W32Time)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Update Medic Service (WaaSMedicSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WalletService (WalletService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WarpJITSvc (WarpJITSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Waves Audio Services (WavesSysSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Blockebenen-Sicherungsmodul (wbengine)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Biometriedienst (WbioSrvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Verbindungs-Manager (Wcmsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Sofortverbindung - Konfigurationsregistrierungsstelle (wcncsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnosediensthost (WdiServiceHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnosesystemhost (WdiSystemHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Defender Antivirus-Netzwerkinspektionsdienst (WdNisSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WebClient (WebClient)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Ereignissammlung (Wecsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hostdienst für Windows Encryption Provider (WEPHOSTSVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Unterstützung in der Systemsteuerung unter "Problemberichte" (wercplsupport)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Fehlerberichterstattungsdienst (WerSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verbindungs-Manager-Dienst von Wi-Fi Direct Services (WFDSConMgrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Ereignisse zum Abrufen von Standbildern (WiaRpc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Defender Antivirus-Dienst (WinDefend)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WinHTTP-Web Proxy Auto-Discovery-Dienst (WinHttpAutoProxySvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Verwaltungsinstrumentation (Winmgmt)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Remoteverwaltung (WS-Verwaltung) (WinRM)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Insider-Dienst (wisvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Automatische WLAN-Konfiguration (WlanSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anmelde-Assistent für Microsoft-Konten (wlidsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst "Assistent für lokale Profile" (wlpasvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Verwaltungsdienst (WManSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WMI-Leistungsadapter (wmiApSrv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Media Player-Netzwerkfreigabedienst (WMPNetworkSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Arbeitsordner (workfolderssvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Jugendschutz (WpcMonSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Enumeratordienst für tragbare Geräte (WPDBusEnum)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Pushbenachrichtigungssystemdienst (WpnService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Pushbenachrichtigungs-Benutzerdienst_633010 (WpnUserService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sicherheitscenter (wscsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Search (WSearch)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Update (wuauserv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WWAN - automatische Konfiguration (WwanSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Live Authentifizierungs-Manager (XblAuthManager)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Live-Spiele speichern (XblGameSave)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Accessory Management Service (XboxGipSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Live-Netzwerkservice (XboxNetApiSvc)".
+**********************
+Ende der Windows PowerShell-Aufzeichnung
+Endzeit: 20201119130959
+**********************
+**********************
+nStart der Windows PowerShell-Aufzeichnung
+Startzeit: 20201119131038
+Benutzername: DELL7390\tobia
+RunAs-Benutzer: DELL7390\tobia
+Konfigurationsname: 
+Computer: DELL7390 (Microsoft Windows NT 10.0.19042.0)
+Hostanwendung: C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Prozess-ID: 15128
+PSVersion: 5.1.19041.610
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.610
+BuildVersion: 10.0.19041.610
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  AarSvc_633010      Agent Activation Runtime_633010
+Running  AdobeARMservice    Adobe Acrobat Update Service
+Stopped  AJRouter           AllJoyn-Routerdienst
+Stopped  ALG                Gatewaydienst auf Anwendungsebene
+Stopped  AppIDSvc           Anwendungsidentität
+Running  Appinfo            Anwendungsinformationen
+Stopped  AppMgmt            Anwendungsverwaltung
+Stopped  AppReadiness       App-Vorbereitung
+Stopped  AppVClient         Microsoft App-V Client
+Running  AppXSvc            AppX-Bereitstellungsdienst (AppXSVC)
+Stopped  AssignedAccessM... AssignedAccessManager-Dienst
+Running  AudioEndpointBu... Windows-Audio-Endpunkterstellung
+Running  Audiosrv           Windows-Audio
+Stopped  autotimesvc        Mobilfunkzeit
+Stopped  AxInstSV           ActiveX-Installer (AxInstSV)
+Stopped  BcastDVRUserSer... Benutzerdienst für GameDVR und Über...
+Running  BDESVC             BitLocker-Laufwerkverschlüsselungsd...
+Running  BFE                Basisfiltermodul
+Stopped  BITS               Intelligenter Hintergrundübertragun...
+Running  BluetoothUserSe... Bluetooth-Unterstützungsdienst für ...
+Running  BrokerInfrastru... Infrastrukturdienst für Hintergrund...
+Running  Browser            Computerbrowser
+Running  BTAGService        Bluetooth-Audiogateway-Dienst
+Running  BthAvctpSvc        AVCTP-Dienst
+Running  bthserv            Bluetooth-Unterstützungsdienst
+Running  camsvc             Manager-Dienst für den Funktionszug...
+Stopped  CaptureService_... CaptureService_633010
+Running  cbdhsvc_633010     Zwischenablage-Benutzerdienst_633010
+Running  CDPSvc             Plattformdienst für verbundene Geräte
+Running  CDPUserSvc_633010  Benutzerdienst für die Plattform fü...
+Stopped  CertPropSvc        Zertifikatverteilung
+Running  ClickToRunSvc      Microsoft Office Click-to-Run Service
+Stopped  ClipSVC            Clientlizenzdienst (ClipSVC)
+Stopped  COMSysApp          COM+-Systemanwendung
+Stopped  ConsentUxUserSv... ConsentUX_633010
+Running  CoreMessagingRe... CoreMessaging
+Running  cplspcon           Intel(R) Content Protection HDCP Se...
+Stopped  CredentialEnrol... CredentialEnrollmentManagerUserSvc_...
+Running  CryptSvc           Kryptografiedienste
+Stopped  CscService         Offlinedateien
+Running  DcomLaunch         DCOM-Server-Prozessstart
+Stopped  dcpm-notify        Dell Command | Power Manager Notify
+Stopped  defragsvc          Laufwerke optimieren
+Running  Dell Digital De... Dell Digital Delivery Services
+Running  Dell SupportAss... Dell SupportAssist Remediation
+Stopped  Dell.CommandPow... Dell.CommandPowerManager.Service
+Running  DellClientManag... Dell Client Management Service
+Stopped  DeviceAssociati... DeviceAssociationBroker_633010
+Running  DeviceAssociati... Gerätezuordnungsdienst
+Stopped  DeviceInstall      Geräteinstallationsdienst
+Stopped  DevicePickerUse... DevicePicker_633010
+Stopped  DevicesFlowUser... DevicesFlow_633010
+Stopped  DevQueryBroker     Broker für DevQuery-Hintergrundermi...
+Running  Dhcp               DHCP-Client
+Stopped  diagnosticshub.... Standardsammlungsdienst des Microso...
+Stopped  diagsvc            Diagnostic Execution Service
+Running  DiagTrack          Benutzererfahrungen und Telemetrie ...
+Running  DispBrokerDeskt... Anzeigerichtliniendienst
+Running  DisplayEnhancem... Anzeigeverbesserungsdienst
+Stopped  DmEnrollmentSvc    Registrierungsdienst für die Geräte...
+Stopped  dmwappushservice   WAP-Push-Nachrichten Routing-Dienst...
+Running  Dnscache           DNS-Client
+Running  DoSvc              Übermittlungsoptimierung
+Stopped  dot3svc            Automatische Konfiguration (verkabelt)
+Running  DPS                Diagnoserichtliniendienst
+Stopped  DsmSvc             Geräteinstallations-Manager
+Running  DsSvc              Datenfreigabedienst
+Running  DusmSvc            Datennutzung
+Stopped  Eaphost            Extensible Authentication-Protokoll
+Stopped  edgeupdate         Microsoft Edge Update Service (edge...
+Stopped  edgeupdatem        Microsoft Edge Update Service (edge...
+Stopped  EFS                Verschlüsselndes Dateisystem (EFS)
+Stopped  embeddedmode       Eingebetteter Modus
+Stopped  EntAppSvc          Verwaltungsdienst für Unternehmens-...
+Running  esifsvc            Intel(R) Dynamic Tuning service
+Running  EventLog           Windows-Ereignisprotokoll
+Running  EventSystem        COM+-Ereignissystem
+Stopped  Fax                Fax
+Stopped  fdPHost            Funktionssuchanbieter-Host
+Stopped  FDResPub           Funktionssuche-Ressourcenveröffentl...
+Running  fhsvc              Dateiversionsverlauf-Dienst
+Running  FontCache          Windows-Dienst für Schriftartencache
+Stopped  FontCache3.0.0.0   Windows Presentation Foundation-Sch...
+Stopped  FrameServer        Windows-Kamera-FrameServer
+Stopped  GoogleChromeEle... Google Chrome Elevation Service
+Stopped  gpsvc              Gruppenrichtlinienclient
+Stopped  GraphicsPerfSvc    GraphicsPerfSvc
+Stopped  gupdate            Google Update-Dienst (gupdate)
+Stopped  gupdatem           Google Update-Dienst (gupdatem)
+Stopped  HfcDisableService  Intel(R) RST HFC Disable Service
+Running  hidserv            Eingabegerätedienst
+Stopped  HvHost             HV-Hostdienst
+Stopped  iaStorAfsService   Intel(R) Optane(TM) Memory Service
+Stopped  icssvc             Windows-Dienst für mobile Hotspots
+Running  igccservice        Intel(R) Graphics Command Center Se...
+Running  igfxCUIService2... Intel(R) HD Graphics Control Panel ...
+Stopped  IKEEXT             IKE- und AuthIP IPsec-Schlüsselerst...
+Running  InstallService     Microsoft Store-Installationsdienst
+Stopped  Intel(R) Capabi... Intel(R) Capability Licensing Servi...
+Stopped  Intel(R) TPM Pr... Intel(R) TPM Provisioning Service
+Running  IntelAudioService  Intel(R) Audio Service
+Running  iphlpsvc           IP-Hilfsdienst
+Stopped  IpxlatCfgSvc       Konfigurationsdienst für die IP-Übe...
+Running  jhi_service        Intel(R) Dynamic Application Loader...
+Running  KAPSService        Killer Smart AP Selection Service
+Running  KeyIso             CNG-Schlüsselisolation
+Running  Killer Analytic... Killer Analytics Service
+Running  Killer Network ... Killer Network Service
+Stopped  KNDBWM             Killer Dynamic Bandwidth Management
+Stopped  KtmRm              KtmRm für Distributed Transaction C...
+Running  LanmanServer       Server
+Running  LanmanWorkstation  Arbeitsstationsdienst
+Running  lfsvc              Geolocation-Dienst
+Running  LicenseManager     Windows-Lizenz-Manager-Dienst
+Stopped  lltdsvc            Verbindungsschicht-Topologieerkennu...
+Running  lmhosts            TCP/IP-NetBIOS-Hilfsdienst
+Running  LMS                Intel(R) Management and Security Ap...
+Running  LSM                Lokaler Sitzungs-Manager
+Stopped  LxpSvc             Sprachumgebungsdienst
+Stopped  MapsBroker         Manager für heruntergeladene Karten
+Running  MBAMService        Malwarebytes Service
+Stopped  MessagingServic... MessagingService_633010
+Stopped  MicrosoftEdgeEl... Microsoft Edge Elevation Service
+Stopped  MixedRealityOpe... Windows Mixed Reality OpenXR Service
+Stopped  MozillaMaintenance Mozilla Maintenance Service
+Running  mpssvc             Windows Defender Firewall
+Stopped  MSDTC              Distributed Transaction Coordinator
+Stopped  MSiSCSI            Microsoft iSCSI-Initiator-Dienst
+Stopped  msiserver          Windows Installer
+Stopped  NaturalAuthenti... Natürliche Authentifizierung
+Stopped  NcaSvc             Netzwerkkonnektivitäts-Assistent
+Running  NcbService         Netzwerkverbindungsbroker
+Stopped  NcdAutoSetup       Autom. Setup von Geräten, die mit d...
+Running  Net Driver HPZ12   Net Driver HPZ12
+Stopped  Netlogon           Anmeldedienst
+Running  Netman             Netzwerkverbindungen
+Running  netprofm           Netzwerklistendienst
+Stopped  NetSetupSvc        Netzwerkeinrichtungsdienst
+Stopped  NetTcpPortSharing  Net.Tcp-Portfreigabedienst
+Running  NgcCtnrSvc         Microsoft Passport-Container
+Running  NgcSvc             Microsoft Passport
+Running  NlaSvc             NLA (Network Location Awareness)
+Running  nsi                Netzwerkspeicher-Schnittstellendienst
+Running  OneSyncSvc_633010  Synchronisierungshost_633010
+Stopped  ose                Office  Source Engine
+Stopped  p2pimsvc           Peernetzwerkidentitäts-Manager
+Stopped  p2psvc             Peernetzwerk-Gruppenzuordnung
+Running  PcaSvc             Programmkompatibilitäts-Assistent-D...
+Stopped  PeerDistSvc        BranchCache
+Stopped  perceptionsimul... Windows Perception Simulation Service
+Stopped  PerfHost           Leistungsindikator-DLL-Host
+Running  PhoneSvc           Telefondienst
+Running  PimIndexMainten... Kontaktdaten_633010
+Stopped  pla                Leistungsprotokolle und -warnungen
+Running  PlugPlay           Plug & Play
+Running  Pml Driver HPZ12   Pml Driver HPZ12
+Stopped  PNRPAutoReg        PNRP-Computernamenveröffentlichungs...
+Stopped  PNRPsvc            Peer Name Resolution-Protokoll
+Running  PolicyAgent        IPsec-Richtlinien-Agent
+Running  Power              Stromversorgung
+Stopped  PrintNotify        Druckererweiterungen und -benachric...
+Stopped  PrintWorkflowUs... PrintWorkflow_633010
+Running  ProfSvc            Benutzerprofildienst
+Stopped  PushToInstall      Windows PushToInstall-Dienst
+Stopped  QWAVE              Verbessertes Windows-Audio/Video-St...
+Stopped  RasAuto            Verwaltung für automatische RAS-Ver...
+Running  RasMan             RAS-Verbindungsverwaltung
+Stopped  RemoteAccess       Routing und RAS
+Stopped  RemoteRegistry     Remoteregistrierung
+Stopped  RetailDemo         Dienst für Einzelhandelsdemos
+Running  RmSvc              Funkverwaltungsdienst
+Running  RpcEptMapper       RPC-Endpunktzuordnung
+Stopped  RpcLocator         RPC-Locator
+Running  RpcSs              Remoteprozeduraufruf (RPC)
+Running  RstMwService       Intel(R) Storage Middleware Service
+Running  RtkAudioUnivers... Realtek Audio Universal Service
+Running  SamSs              Sicherheitskonto-Manager
+Stopped  SCardSvr           Smartcard
+Stopped  ScDeviceEnum       Smartcard-Geräteaufzählungsdienst
+Running  Schedule           Aufgabenplanung
+Stopped  SCPolicySvc        Richtlinie zum Entfernen der Scmart...
+Stopped  SDRSVC             Windows-Sicherung
+Stopped  seclogon           Sekundäre Anmeldung
+Running  SecurityHealthS... Windows-Sicherheitsdienst
+Stopped  SEMgrSvc           Zahlungs- und NFC/SE-Manager
+Running  SENS               Benachrichtigungsdienst für Systeme...
+Stopped  Sense              Windows Defender Advanced Threat Pr...
+Stopped  SensorDataService  Sensordatendienst
+Running  SensorService      Sensordienst
+Running  SensrSvc           Sensorüberwachungsdienst
+Stopped  SessionEnv         Konfiguration für Remotedesktops
+Running  SessionSvc         Session Detection
+Running  SgrmBroker         Broker für Laufzeitüberwachung der ...
+Stopped  SharedAccess       Gemeinsame Nutzung der Internetverb...
+Stopped  SharedRealitySvc   Dienst für räumliche Daten
+Running  ShellHWDetection   Shellhardwareerkennung
+Stopped  shpamsvc           Shared PC Account Manager
+Stopped  smphost            Microsoft-SMP für Speicherplätze
+Stopped  SmsRouter          Microsoft Windows SMS-Routerdienst.
+Stopped  SNMPTRAP           SNMP-Trap
+Stopped  spectrum           Windows Perception Service
+Running  Spooler            Druckwarteschlange
+Stopped  sppsvc             Software Protection
+Running  SQLWriter          SQL Server VSS Writer
+Running  SSDPSRV            SSDP-Suche
+Stopped  ssh-agent          OpenSSH Authentication Agent
+Stopped  sshd               OpenSSH SSH Server
+Running  SstpSvc            SSTP-Dienst
+Running  StateRepository    StateRepository-Dienst
+Running  stisvc             Windows-Bilderfassung (WIA)
+Running  StorSvc            Speicherdienst
+Stopped  svsvc              Echtzeit-Datenträgerprüfung
+Stopped  swprv              Microsoft-Softwareschattenkopie-Anb...
+Running  Synology Active... Synology Active Backup for Business...
+Running  SysMain            SysMain
+Running  SystemEventsBroker Systemereignissebroker
+Running  TabletInputService Dienst für Bildschirmtastatur und S...
+Stopped  TapiSrv            Telefonie
+Running  TbtHostControll... Thunderbolt(TM) Application Launcher
+Stopped  TermService        Remotedesktopdienste
+Running  Themes             Designs
+Stopped  TieringEngineSe... Storage Tiers Management
+Running  TimeBrokerSvc      Zeitbroker
+Running  TokenBroker        Web Account Manager
+Running  TrkWks             Überwachung verteilter Verknüpfunge...
+Stopped  TroubleshootingSvc Dienst für empfohlene Problembehand...
+Stopped  TrustedInstaller   Windows Modules Installer
+Stopped  tzautoupdate       Automatische Zeitzonenaktualisierung
+Stopped  UdkUserSvc_633010  Udk-Benutzerdienst_633010
+Stopped  UevAgentService    User Experience Virtualization-Dienst
+Stopped  UmRdpService       Anschlussumleitung für Remotedeskto...
+Running  UnistoreSvc_633010 Benutzerdatenspeicher _633010
+Stopped  upnphost           UPnP-Gerätehost
+Running  UserDataSvc_633010 Benutzerdatenzugriff_633010
+Running  UserManager        Benutzer-Manager
+Running  UsoSvc             Update-Orchestrator-Dienst
+Stopped  VacSvc             Volumetric Audio Compositor-Dienst
+Running  VaultSvc           Anmeldeinformationsverwaltung
+Stopped  vds                Virtueller Datenträger
+Stopped  vmicguestinterface Hyper-V-Gastdienstschnittstelle
+Stopped  vmicheartbeat      Hyper-V-Taktdienst
+Stopped  vmickvpexchange    Hyper-V-Datenaustauschdienst
+Stopped  vmicrdv            Hyper-V-Remotedesktopvirtualisierun...
+Stopped  vmicshutdown       Hyper-V-Dienst zum Herunterfahren d...
+Stopped  vmictimesync       Hyper-V-Dienst für Zeitsynchronisie...
+Stopped  vmicvmsession      Hyper-V PowerShell Direct-Dienst
+Stopped  vmicvss            Hyper-V-Volumeschattenkopie-Anforderer
+Stopped  VSS                Volumeschattenkopie
+Stopped  VSStandardColle... Visual Studio Standard Collector Se...
+Running  W32Time            Windows-Zeitgeber
+Stopped  WaaSMedicSvc       Windows Update Medic Service
+Stopped  WalletService      WalletService
+Stopped  WarpJITSvc         WarpJITSvc
+Running  WavesSysSvc        Waves Audio Services
+Stopped  wbengine           Blockebenen-Sicherungsmodul
+Running  WbioSrvc           Windows-Biometriedienst
+Running  Wcmsvc             Windows-Verbindungs-Manager
+Stopped  wcncsvc            Windows-Sofortverbindung - Konfigur...
+Running  WdiServiceHost     Diagnosediensthost
+Running  WdiSystemHost      Diagnosesystemhost
+Running  WdNisSvc           Microsoft Defender Antivirus-Netzwe...
+Running  WebClient          WebClient
+Stopped  Wecsvc             Windows-Ereignissammlung
+Stopped  WEPHOSTSVC         Hostdienst für Windows Encryption P...
+Stopped  wercplsupport      Unterstützung in der Systemsteuerun...
+Stopped  WerSvc             Windows-Fehlerberichterstattungsdienst
+Stopped  WFDSConMgrSvc      Verbindungs-Manager-Dienst von Wi-F...
+Stopped  WiaRpc             Ereignisse zum Abrufen von Standbil...
+Running  WinDefend          Microsoft Defender Antivirus-Dienst
+Running  WinHttpAutoProx... WinHTTP-Web Proxy Auto-Discovery-Di...
+Running  Winmgmt            Windows-Verwaltungsinstrumentation
+Running  WinRM              Windows-Remoteverwaltung (WS-Verwal...
+Stopped  wisvc              Windows-Insider-Dienst
+Running  WlanSvc            Automatische WLAN-Konfiguration
+Stopped  wlidsvc            Anmelde-Assistent für Microsoft-Konten
+Stopped  wlpasvc            Dienst "Assistent für lokale Profile"
+Stopped  WManSvc            Windows-Verwaltungsdienst
+Stopped  wmiApSrv           WMI-Leistungsadapter
+Stopped  WMPNetworkSvc      Windows Media Player-Netzwerkfreiga...
+Stopped  workfolderssvc     Arbeitsordner
+Stopped  WpcMonSvc          Jugendschutz
+Stopped  WPDBusEnum         Enumeratordienst für tragbare Geräte
+Running  WpnService         Windows-Pushbenachrichtigungssystem...
+Running  WpnUserService_... Windows-Pushbenachrichtigungs-Benut...
+Running  wscsvc             Sicherheitscenter
+Running  WSearch            Windows Search
+Stopped  wuauserv           Windows Update
+Stopped  WwanSvc            WWAN - automatische Konfiguration
+Running  XblAuthManager     Xbox Live Authentifizierungs-Manager
+Stopped  XblGameSave        Xbox Live-Spiele speichern
+Stopped  XboxGipSvc         Xbox Accessory Management Service
+Stopped  XboxNetApiSvc      Xbox Live-Netzwerkservice
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Agent Activation Runtime_633010 (AarSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Adobe Acrobat Update Service (AdobeARMservice)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AllJoyn-Routerdienst (AJRouter)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gatewaydienst auf Anwendungsebene (ALG)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anwendungsidentität (AppIDSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anwendungsinformationen (Appinfo)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anwendungsverwaltung (AppMgmt)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "App-Vorbereitung (AppReadiness)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft App-V Client (AppVClient)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AppX-Bereitstellungsdienst (AppXSVC) (AppXSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AssignedAccessManager-Dienst (AssignedAccessManagerSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Audio-Endpunkterstellung (AudioEndpointBuilder)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Audio (Audiosrv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Mobilfunkzeit (autotimesvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "ActiveX-Installer (AxInstSV) (AxInstSV)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdienst für GameDVR und Übertragungen_633010 (BcastDVRUserService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "BitLocker-Laufwerkverschlüsselungsdienst (BDESVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Basisfiltermodul (BFE)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intelligenter Hintergrundübertragungsdienst (BITS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Bluetooth-Unterstützungsdienst für Benutzer_633010 (BluetoothUserService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Infrastrukturdienst für Hintergrundaufgaben (BrokerInfrastructure)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Computerbrowser (Browser)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Bluetooth-Audiogateway-Dienst (BTAGService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "AVCTP-Dienst (BthAvctpSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Bluetooth-Unterstützungsdienst (bthserv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Manager-Dienst für den Funktionszugriff (camsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CaptureService_633010 (CaptureService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zwischenablage-Benutzerdienst_633010 (cbdhsvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Plattformdienst für verbundene Geräte (CDPSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdienst für die Plattform für verbundene Geräte_633010 (CDPUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zertifikatverteilung (CertPropSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Office Click-to-Run Service (ClickToRunSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Clientlizenzdienst (ClipSVC) (ClipSVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "COM+-Systemanwendung (COMSysApp)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "ConsentUX_633010 (ConsentUxUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CoreMessaging (CoreMessagingRegistrar)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Content Protection HDCP Service (cplspcon)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CredentialEnrollmentManagerUserSvc_633010 (CredentialEnrollmentManagerUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Kryptografiedienste (CryptSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Offlinedateien (CscService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DCOM-Server-Prozessstart (DcomLaunch)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell Command | Power Manager Notify (dcpm-notify)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Laufwerke optimieren (defragsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell Digital Delivery Services (Dell Digital Delivery Services)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell SupportAssist Remediation (Dell SupportAssist Remediation)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell.CommandPowerManager.Service (Dell.CommandPowerManager.Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dell Client Management Service (DellClientManagementService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DeviceAssociationBroker_633010 (DeviceAssociationBrokerSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gerätezuordnungsdienst (DeviceAssociationService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Geräteinstallationsdienst (DeviceInstall)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DevicePicker_633010 (DevicePickerUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DevicesFlow_633010 (DevicesFlowUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Broker für DevQuery-Hintergrundermittlung (DevQueryBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DHCP-Client (Dhcp)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Standardsammlungsdienst des Microsoft(R)-Diagnose-Hubs (diagnosticshub.standardcollector.service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnostic Execution Service (diagsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzererfahrungen und Telemetrie im verbundenen Modus (DiagTrack)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anzeigerichtliniendienst (DispBrokerDesktopSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anzeigeverbesserungsdienst (DisplayEnhancementService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Registrierungsdienst für die Geräteverwaltung (DmEnrollmentSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WAP-Push-Nachrichten Routing-Dienst (Wireless Application Protocol) für die Geräteverwaltung (dmwappushservice)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "DNS-Client (Dnscache)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Übermittlungsoptimierung (DoSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Automatische Konfiguration (verkabelt) (dot3svc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnoserichtliniendienst (DPS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Geräteinstallations-Manager (DsmSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Datenfreigabedienst (DsSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Datennutzung (DusmSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Extensible Authentication-Protokoll (Eaphost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Edge Update Service (edgeupdate) (edgeupdate)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Edge Update Service (edgeupdatem) (edgeupdatem)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verschlüsselndes Dateisystem (EFS) (EFS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Eingebetteter Modus (embeddedmode)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verwaltungsdienst für Unternehmens-Apps (EntAppSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Dynamic Tuning service (esifsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Ereignisprotokoll (EventLog)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "COM+-Ereignissystem (EventSystem)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Fax (Fax)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Funktionssuchanbieter-Host (fdPHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Funktionssuche-Ressourcenveröffentlichung (FDResPub)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dateiversionsverlauf-Dienst (fhsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Dienst für Schriftartencache (FontCache)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Presentation Foundation-Schriftartcache 3.0.0.0 (FontCache3.0.0.0)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Kamera-FrameServer (FrameServer)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Google Chrome Elevation Service (GoogleChromeElevationService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gruppenrichtlinienclient (gpsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "GraphicsPerfSvc (GraphicsPerfSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Google Update-Dienst (gupdate) (gupdate)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Google Update-Dienst (gupdatem) (gupdatem)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) RST HFC Disable Service (HfcDisableService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Eingabegerätedienst (hidserv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "HV-Hostdienst (HvHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Optane(TM) Memory Service (iaStorAfsService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Dienst für mobile Hotspots (icssvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Graphics Command Center Service (igccservice)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) HD Graphics Control Panel Service (igfxCUIService2.0.0.0)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "IKE- und AuthIP IPsec-Schlüsselerstellungsmodule (IKEEXT)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Store-Installationsdienst (InstallService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Capability Licensing Service TCP IP Interface (Intel(R) Capability Licensing Service TCP IP Interface)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) TPM Provisioning Service (Intel(R) TPM Provisioning Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Audio Service (IntelAudioService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "IP-Hilfsdienst (iphlpsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Konfigurationsdienst für die IP-Übersetzung (IpxlatCfgSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Dynamic Application Loader Host Interface Service (jhi_service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Smart AP Selection Service (KAPSService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "CNG-Schlüsselisolation (KeyIso)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Analytics Service (Killer Analytics Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Network Service (Killer Network Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Killer Dynamic Bandwidth Management (KNDBWM)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "KtmRm für Distributed Transaction Coordinator (KtmRm)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Server (LanmanServer)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Arbeitsstationsdienst (LanmanWorkstation)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Geolocation-Dienst (lfsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Lizenz-Manager-Dienst (LicenseManager)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verbindungsschicht-Topologieerkennungs-Zuordnungsprogramm (lltdsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "TCP/IP-NetBIOS-Hilfsdienst (lmhosts)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Management and Security Application Local Management Service (LMS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Lokaler Sitzungs-Manager (LSM)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sprachumgebungsdienst (LxpSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Manager für heruntergeladene Karten (MapsBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Malwarebytes Service (MBAMService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "MessagingService_633010 (MessagingService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Mixed Reality OpenXR Service (MixedRealityOpenXRSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Mozilla Maintenance Service (MozillaMaintenance)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Defender Firewall (mpssvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Distributed Transaction Coordinator (MSDTC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft iSCSI-Initiator-Dienst (MSiSCSI)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Installer (msiserver)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Natürliche Authentifizierung (NaturalAuthentication)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkkonnektivitäts-Assistent (NcaSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkverbindungsbroker (NcbService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Autom. Setup von Geräten, die mit dem Netzwerk verbunden sind (NcdAutoSetup)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Net Driver HPZ12 (Net Driver HPZ12)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anmeldedienst (Netlogon)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkverbindungen (Netman)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerklistendienst (netprofm)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkeinrichtungsdienst (NetSetupSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Net.Tcp-Portfreigabedienst (NetTcpPortSharing)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Passport-Container (NgcCtnrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Passport (NgcSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "NLA (Network Location Awareness) (NlaSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Netzwerkspeicher-Schnittstellendienst (nsi)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Synchronisierungshost_633010 (OneSyncSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Office  Source Engine (ose)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Peernetzwerkidentitäts-Manager (p2pimsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Peernetzwerk-Gruppenzuordnung (p2psvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Programmkompatibilitäts-Assistent-Dienst (PcaSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "BranchCache (PeerDistSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Perception Simulation Service (perceptionsimulation)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Leistungsindikator-DLL-Host (PerfHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Telefondienst (PhoneSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Kontaktdaten_633010 (PimIndexMaintenanceSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Leistungsprotokolle und -warnungen (pla)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Plug & Play (PlugPlay)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Pml Driver HPZ12 (Pml Driver HPZ12)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "PNRP-Computernamenveröffentlichungs-Dienst (PNRPAutoReg)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Peer Name Resolution-Protokoll (PNRPsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "IPsec-Richtlinien-Agent (PolicyAgent)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Stromversorgung (Power)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Druckererweiterungen und -benachrichtigungen (PrintNotify)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "PrintWorkflow_633010 (PrintWorkflowUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerprofildienst (ProfSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows PushToInstall-Dienst (PushToInstall)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verbessertes Windows-Audio/Video-Streaming (QWAVE)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verwaltung für automatische RAS-Verbindung (RasAuto)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "RAS-Verbindungsverwaltung (RasMan)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Routing und RAS (RemoteAccess)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Remoteregistrierung (RemoteRegistry)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für Einzelhandelsdemos (RetailDemo)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Funkverwaltungsdienst (RmSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "RPC-Endpunktzuordnung (RpcEptMapper)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "RPC-Locator (RpcLocator)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Remoteprozeduraufruf (RPC) (RpcSs)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Intel(R) Storage Middleware Service (RstMwService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Realtek Audio Universal Service (RtkAudioUniversalService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sicherheitskonto-Manager (SamSs)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Smartcard (SCardSvr)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Smartcard-Geräteaufzählungsdienst (ScDeviceEnum)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Aufgabenplanung (Schedule)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Richtlinie zum Entfernen der Scmartcard (SCPolicySvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Sicherung (SDRSVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sekundäre Anmeldung (seclogon)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Sicherheitsdienst (SecurityHealthService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zahlungs- und NFC/SE-Manager (SEMgrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benachrichtigungsdienst für Systemereignisse (SENS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Defender Advanced Threat Protection-Dienst (Sense)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sensordatendienst (SensorDataService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sensordienst (SensorService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sensorüberwachungsdienst (SensrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Konfiguration für Remotedesktops (SessionEnv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Session Detection (SessionSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Broker für Laufzeitüberwachung der Systemüberwachung (SgrmBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Gemeinsame Nutzung der Internetverbindung (SharedAccess)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für räumliche Daten (SharedRealitySvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Shellhardwareerkennung (ShellHWDetection)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Shared PC Account Manager (shpamsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft-SMP für Speicherplätze (smphost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Windows SMS-Routerdienst. (SmsRouter)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SNMP-Trap (SNMPTRAP)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Perception Service (spectrum)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Druckwarteschlange (Spooler)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Software Protection (sppsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SQL Server VSS Writer (SQLWriter)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SSDP-Suche (SSDPSRV)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "OpenSSH Authentication Agent (ssh-agent)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "OpenSSH SSH Server (sshd)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SSTP-Dienst (SstpSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "StateRepository-Dienst (StateRepository)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Bilderfassung (WIA) (stisvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Speicherdienst (StorSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Echtzeit-Datenträgerprüfung (svsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft-Softwareschattenkopie-Anbieter (swprv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Synology Active Backup for Business Service (Synology Active Backup for Business Service)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "SysMain (SysMain)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Systemereignissebroker (SystemEventsBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für Bildschirmtastatur und Schreibbereich (TabletInputService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Telefonie (TapiSrv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Thunderbolt(TM) Application Launcher (TbtHostControllerService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Remotedesktopdienste (TermService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Designs (Themes)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Storage Tiers Management (TieringEngineService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Zeitbroker (TimeBrokerSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Web Account Manager (TokenBroker)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Überwachung verteilter Verknüpfungen (Client) (TrkWks)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst für empfohlene Problembehandlungen (TroubleshootingSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Modules Installer (TrustedInstaller)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Automatische Zeitzonenaktualisierung (tzautoupdate)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Udk-Benutzerdienst_633010 (UdkUserSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "User Experience Virtualization-Dienst (UevAgentService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anschlussumleitung für Remotedesktopdienst im Benutzermodus (UmRdpService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdatenspeicher _633010 (UnistoreSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "UPnP-Gerätehost (upnphost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzerdatenzugriff_633010 (UserDataSvc_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Benutzer-Manager (UserManager)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Update-Orchestrator-Dienst (UsoSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Volumetric Audio Compositor-Dienst (VacSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anmeldeinformationsverwaltung (VaultSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Virtueller Datenträger (vds)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Gastdienstschnittstelle (vmicguestinterface)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Taktdienst (vmicheartbeat)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Datenaustauschdienst (vmickvpexchange)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Remotedesktopvirtualisierungsdienst (vmicrdv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Dienst zum Herunterfahren des Gasts (vmicshutdown)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Dienst für Zeitsynchronisierung (vmictimesync)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V PowerShell Direct-Dienst (vmicvmsession)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hyper-V-Volumeschattenkopie-Anforderer (vmicvss)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Volumeschattenkopie (VSS)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Visual Studio Standard Collector Service 150 (VSStandardCollectorService150)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Zeitgeber (W32Time)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Update Medic Service (WaaSMedicSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WalletService (WalletService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WarpJITSvc (WarpJITSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Waves Audio Services (WavesSysSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Blockebenen-Sicherungsmodul (wbengine)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Biometriedienst (WbioSrvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Verbindungs-Manager (Wcmsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Sofortverbindung - Konfigurationsregistrierungsstelle (wcncsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnosediensthost (WdiServiceHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Diagnosesystemhost (WdiSystemHost)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Defender Antivirus-Netzwerkinspektionsdienst (WdNisSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WebClient (WebClient)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Ereignissammlung (Wecsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Hostdienst für Windows Encryption Provider (WEPHOSTSVC)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Unterstützung in der Systemsteuerung unter "Problemberichte" (wercplsupport)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Fehlerberichterstattungsdienst (WerSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Verbindungs-Manager-Dienst von Wi-Fi Direct Services (WFDSConMgrSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Ereignisse zum Abrufen von Standbildern (WiaRpc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Microsoft Defender Antivirus-Dienst (WinDefend)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WinHTTP-Web Proxy Auto-Discovery-Dienst (WinHttpAutoProxySvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Verwaltungsinstrumentation (Winmgmt)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Remoteverwaltung (WS-Verwaltung) (WinRM)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Insider-Dienst (wisvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Automatische WLAN-Konfiguration (WlanSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Anmelde-Assistent für Microsoft-Konten (wlidsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Dienst "Assistent für lokale Profile" (wlpasvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Verwaltungsdienst (WManSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WMI-Leistungsadapter (wmiApSrv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Media Player-Netzwerkfreigabedienst (WMPNetworkSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Arbeitsordner (workfolderssvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Jugendschutz (WpcMonSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Enumeratordienst für tragbare Geräte (WPDBusEnum)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Pushbenachrichtigungssystemdienst (WpnService)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows-Pushbenachrichtigungs-Benutzerdienst_633010 (WpnUserService_633010)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Sicherheitscenter (wscsvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Search (WSearch)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Windows Update (wuauserv)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "WWAN - automatische Konfiguration (WwanSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Live Authentifizierungs-Manager (XblAuthManager)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Live-Spiele speichern (XblGameSave)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Accessory Management Service (XboxGipSvc)".
+WhatIf: Ausführen des Vorgangs "Stop-Service" für das Ziel "Xbox Live-Netzwerkservice (XboxNetApiSvc)".
+**********************
+Ende der Windows PowerShell-Aufzeichnung
+Endzeit: 20201119131040
+**********************

@@ -1,0 +1,4 @@
+﻿@{
+	BS = 'Screen'
+	KB = 'Keyboard'
+}
