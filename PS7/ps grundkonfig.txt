@@ -1,0 +1,31 @@
+Lokale Adminrechte verfügbar?
+
+  
+0. PowerShell-Version bestimmen:
+$PSVersionTable.PSVersion.Major
+Edition Desktop: mindestens Version 5.1
+Edition Core: mindestens Version 7.1
+
+
+1. ExecutionPolicy (erlaubt Ausführung von PS Skripts)
+ Get-ExecutionPolicy -List
+ Set-ExecutionPolicy -Scope CurrentUser -executionpolicy bypass -force
+
+2. DCOM (klassisches Remoting, z.B. für MMC oder Cmdlets wie Get-Process und Get-Service oder WMI)
+neu, aber nicht so gut:
+netsh advfirewall firewall set rule group="Remote Administration" new enable=yes
+alt, aber zuverlässig:
+netsh firewall set service remoteadmin enable
+
+3. RemoteRegistry-Dienst starten (Get-Process und andere Cmdlets benötigen dies für Remotezugriff)
+Start-Service RemoteRegistry
+
+4. PowerShell-Remoting (ab PS 2.0, nutzt WinRM, Invoke-Command und Enter-PSSession)
+Enable-PSRemoting -SkipNetworkProfileCheck
+Non-Kerberos-Verbindungen erlauben:
+Set-Item -Path WSMan:\localhost\Client\TrustedHosts -Value * -Force
+
+Achtung: bei Domänencomputer (Client) muss bei Non-Kerberos immer -Credential angegeben werden!
+
+
+
