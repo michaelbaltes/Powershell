@@ -1,0 +1,21 @@
+{
+    "powershell.powerShellDefaultVersion": "Windows PowerShell (x64)",
+    "workbench.colorTheme": "PowerShell ISE",
+    "files.defaultLanguage": "powershell",
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": true,
+    "debug.openDebug": "neverOpen",
+    "editor.tabCompletion": "on",
+    "powershell.integratedConsole.focusConsoleOnExecute": false,
+
+    "[powershell]": {
+        "editor.renderWhitespace": "all",
+        "editor.renderControlCharacters": true,
+        "files.trimTrailingWhitespace": true,
+        "files.encoding": "utf8bom",
+        "files.autoGuessEncoding": true
+    },
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true
+}
