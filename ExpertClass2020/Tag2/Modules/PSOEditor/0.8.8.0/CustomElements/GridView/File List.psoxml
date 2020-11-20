@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>File List</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<ListView Name="View1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Loaded="onViewLoaded" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><ListView.View><GridView><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Name}" Header="Name" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Length}" Header="Size (Byte)" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Extension}" Header="Type" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding FullName}" Header="Path" /></GridView></ListView.View></ListView>]]></XamlSnippet>
+	<EventCode><![CDATA[function onViewLoaded
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+	$view1.IsEnabled = $false
+    $view1.ItemsSourceAsync = { dir $env:windir *.ps1 -rec -ea 0 }
+	$view1.ItemsSourceAsyncAction = { $view1.IsEnabled = $true }
+}
+
+]]></EventCode>
+</PSOExtension>

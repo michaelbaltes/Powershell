@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>OKCancel</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Button Content="OK" Height="20" Click="ButtonOK_Click" MinWidth="60" x:Name="ButtonOK_Copy1" Margin="5,5,0,5" /><Button Content="Cancel" Height="20" Margin="5" Click="ButtonCancel_Click" MinWidth="60" x:Name="ButtonCancel_Copy1" /></StackPanel>]]></XamlSnippet>
+	<EventCode><![CDATA[function ButtonOK_Click
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $window.DialogResult = $true
+}
+
+function ButtonCancel_Click
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $window.DialogResult = $false
+}
+
+]]></EventCode>
+</PSOExtension>

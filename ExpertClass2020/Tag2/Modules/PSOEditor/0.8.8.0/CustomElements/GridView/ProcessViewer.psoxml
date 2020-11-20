@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>ProcessViewer</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<ListView Name="View1" VerticalAlignment="Top" HorizontalAlignment="Left" Loaded="onViewLoaded" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><ListView.View><GridView><GridViewColumn Width="140" DisplayMemberBinding="{Binding Name}" Header="Name" /><GridViewColumn Width="350" DisplayMemberBinding="{Binding MainWindowTitle}" Header="Fenstertitel" /><GridViewColumn Width="140" DisplayMemberBinding="{Binding Description}" Header="Beschreibung" /><GridViewColumn Width="100" DisplayMemberBinding="{Binding Company}" Header="Hersteller" /></GridView></ListView.View></ListView>]]></XamlSnippet>
+	<EventCode><![CDATA[function onViewLoaded
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $view1.ItemsSource = @(Get-Process | Where-Object { $_.MainWindowTitle })
+}
+
+]]></EventCode>
+</PSOExtension>

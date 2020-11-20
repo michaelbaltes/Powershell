@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>test1</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<StackPanel Orientation="Horizontal" Width="150.00000000000006" Height="23.000000000000028" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,114,0,0" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Button Content="Button" Width="75" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" /><Button Content="Button" Width="75" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" /></StackPanel>]]></XamlSnippet>
+	<EventCode><![CDATA[]]></EventCode>
+</PSOExtension>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>List Services</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<ComboBox Name="ComboService" HorizontalAlignment="Left" VerticalAlignment="Top" Loaded="onComboLoaded" MinWidth="50" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" />]]></XamlSnippet>
+	<EventCode><![CDATA[function onComboLoaded
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $ComboService.ItemsSource = @(Get-Service)
+	$ComboService.DisplayMemberPath = 'DisplayName'
+	$ComboService.SelectedIndex = 0
+}
+
+]]></EventCode>
+</PSOExtension>

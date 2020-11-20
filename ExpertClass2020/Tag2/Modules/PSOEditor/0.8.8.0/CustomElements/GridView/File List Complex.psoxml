@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>File List Complex</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<Grid Margin="10,10,10,10" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><!-- place your window content here --><ListView Name="View1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Loaded="onViewLoaded" SelectionChanged="view1_selectionChanged"><ListView.View><GridView><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Name}" Header="Name" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Length}" Header="Size (Byte)" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Extension}" Header="Type" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding FullName}" Header="Path" /></GridView></ListView.View></ListView><StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom"><Button x:Name="ButtonOK_Copy1" Content="OK" Height="20" Margin="5,5,0,5" Click="ButtonOK_Click" MinWidth="60" /><Button x:Name="ButtonCancel_Copy1" Content="Cancel" Height="20" Margin="5" Click="ButtonCancel_Click" MinWidth="60" /></StackPanel><Grid.RowDefinitions><RowDefinition Height="0.86875*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions></Grid>]]></XamlSnippet>
+	<EventCode><![CDATA[function onViewLoaded
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+	$view1.IsEnabled = $false
+	$ButtonOK_Copy1.IsEnabled = $false
+    $view1.ItemsSourceAsync = { dir $env:windir *.ps1 -rec -ea 0 }
+	$view1.ItemsSourceAsyncAction = { 
+	$view1.IsEnabled = $true 
+	}
+}
+
+function view1_selectionChanged
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.Controls.SelectionChangedEventArgs]$e
+    )
+
+    # replace the call below with your own event handler code:
+    Write-Warning "WPF element named '$($sender.Name)' fired event 'SelectionChanged' which was handled in PowerShell function 'view1_selectionChanged'."
+	$ButtonOK_Copy1.IsEnabled = ($view1.SelectedItems.Count -gt 0)
+}
+
+function ButtonOK_Click
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $window.DialogResult = $true
+}
+
+function ButtonCancel_Click
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $window.DialogResult = $false
+}
+
+]]></EventCode>
+</PSOExtension>

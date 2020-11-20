@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>Service</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<ListView Name="ListViewService" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Loaded="ListViewService_OnLoaded" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"><ListView.View><GridView><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding DisplayName}" Header="Name" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Status}" Header="Status" /><GridViewColumn Width="Auto" DisplayMemberBinding="{Binding StartType}" Header="Start Type" /></GridView></ListView.View></ListView>]]></XamlSnippet>
+	<EventCode><![CDATA[function ListViewService_OnLoaded
+{
+    param
+    (
+        [Parameter(Mandatory)][System.Windows.Controls.ListView]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $sender.ItemsSource = Get-Service
+}
+
+]]></EventCode>
+</PSOExtension>

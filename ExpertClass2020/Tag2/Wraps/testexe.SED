@@ -1,0 +1,37 @@
+[Version]
+Class=IEXPRESS
+SEDVersion=3
+[Options]
+PackagePurpose=InstallApp
+ShowInstallProgramWindow=1
+HideExtractAnimation=1
+UseLongFileName=1
+InsideCompressed=0
+CAB_FixedSize=0
+CAB_ResvCodeSigning=0
+RebootMode=N
+InstallPrompt=%InstallPrompt%
+DisplayLicense=%DisplayLicense%
+FinishMessage=%FinishMessage%
+TargetName=%TargetName%
+FriendlyName=%FriendlyName%
+AppLaunched=%AppLaunched%
+PostInstallCmd=%PostInstallCmd%
+AdminQuietInstCmd=%AdminQuietInstCmd%
+UserQuietInstCmd=%UserQuietInstCmd%
+SourceFiles=SourceFiles
+[Strings]
+InstallPrompt=
+DisplayLicense=
+FinishMessage=
+TargetName=C:\Users\tobia\OneDrive\Dokumente\Kurse\ExpertClass2020\Tag2\Wraps\testexe.EXE
+FriendlyName=dqwdqdq
+AppLaunched=powershell.exe -noprofile -executionpolicy bypass -file "vorlage exe.ps1"
+PostInstallCmd=<None>
+AdminQuietInstCmd=
+UserQuietInstCmd=
+FILE0="Vorlage exe.ps1"
+[SourceFiles]
+SourceFiles0=C:\Users\tobia\OneDrive\Dokumente\Kurse\ExpertClass2020\Tag2\Wraps\
+[SourceFiles0]
+%FILE0%=

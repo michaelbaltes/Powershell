@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>Checkbox</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<StackPanel Orientation="Horizontal" Width="124" Height="24" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="38,0,0,420" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" /><TextBlock Text="TextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" /></StackPanel>]]></XamlSnippet>
+	<EventCode><![CDATA[]]></EventCode>
+</PSOExtension>

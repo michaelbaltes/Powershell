@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>ListBox with context menu</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="100" MinWidth="100" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><ListBox.ContextMenu><ContextMenu><MenuItem Name="MenuItem1" Click="MenuItem1_Click" Header="Test" /></ContextMenu></ListBox.ContextMenu></ListBox>]]></XamlSnippet>
+	<EventCode><![CDATA[function MenuItem1_Click
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    # replace the call below with your own event handler code:
+    Write-Warning "WPF element named '$($sender.Name)' fired event 'Click' which was handled in PowerShell function 'MenuItem1_Click'."
+	Write-Warning $MenuItem1.Header
+}
+
+]]></EventCode>
+</PSOExtension>

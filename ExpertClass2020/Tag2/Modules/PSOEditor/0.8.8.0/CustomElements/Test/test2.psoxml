@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PSOExtension Type="FullXamlSnippet">
+	<Name>test2</Name>
+	<Description />
+	<XamlSnippet><![CDATA[<StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Button Name="ButtonOK" Content="OK" Height="20" Margin="5" Click="ButtonOK_Click" MinWidth="60" /><Button Name="ButtonCancel" Content="Cancel" Height="20" Margin="5" Click="ButtonCancel_Click" MinWidth="60" /><Button Width="75" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5" Height="20" MinWidth="60" Content="Abort" /></StackPanel>]]></XamlSnippet>
+	<EventCode><![CDATA[function ButtonOK_Click
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $window.DialogResult = $true
+}
+
+function ButtonCancel_Click
+{
+    param
+    (
+        [Parameter(Mandatory)][Object]$sender,
+        [Parameter(Mandatory)][Windows.RoutedEventArgs]$e
+    )
+
+    $window.DialogResult = $false
+}
+
+]]></EventCode>
+</PSOExtension>
