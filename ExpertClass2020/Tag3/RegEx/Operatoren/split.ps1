@@ -1,0 +1,2 @@
+﻿
+'c:\windows\test.txt'.Split('\')'c:\windows\test.txt' -split '\\''192.178.22.12 = "Test="' -split ' = ''192.178.22.12 = "Test="'.Split(' = ')'test.exe'.Split('.exe')[Regex]::Escape('\')[Regex]::Escape('.exe')

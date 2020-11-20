@@ -1,0 +1,183 @@
+
+function new-codesigncert {
+[CmdletBinding()]
+
+ param (
+  [string][Parameter(Mandatory=$true)]$Name,
+  [datetime]$NotBefore = (Get-Date).AddDays(-1),
+  [datetime]$NotAfter = $NotBefore.AddDays(365),
+  [int][ValidateSet("1024", "2048")]$KeyLength = 1024,
+  [switch]$CreateTrust,
+  [switch]$PrivateKeyExportable
+ )
+
+
+# �serverAuth (1.3.6.1.5.5.7.3.1) -- TLS Web server authentication 
+# �clientAuth (1.3.6.1.5.5.7.3.2) -- TLS Web client authentication 
+# �codeSigning (1.3.6.1.5.5.7.3.3) -- Code signing 
+# �emailProtection (1.3.6.1.5.5.7.3.4) -- E-mail protection 
+# �timeStamping (1.3.6.1.5.5.7.3.8) -- Timestamping 
+# �ocspSigning (1.3.6.1.5.5.7.3.9) -- OCSPstamping 
+ 
+ $subject = "CN=$name"
+ 
+ $OSversion = ([System.Version]((Get-WmiObject Win32_OperatingSystem).Version)).Major
+ if ($OSversion -lt 6) {
+  Write-Warning "Your operating system version does not support scripted creation of digital certificates."
+  return
+ }
+ $SubjectDN = New-Object -ComObject X509Enrollment.CX500DistinguishedName
+ $SubjectDN.Encode($Subject, 0x0)
+ 
+ $OID = New-Object -ComObject X509Enrollment.CObjectID
+ $OID.InitializeFromValue("1.3.6.1.5.5.7.3.3")
+ $OIDs = New-Object -ComObject X509Enrollment.CObjectIDs
+ $OIDs.Add($OID)
+ 
+ $EKU = New-Object -ComObject X509Enrollment.CX509ExtensionEnhancedKeyUsage
+ $EKU.InitializeEncode($OIDs)
+ 
+ $PrivateKey = New-Object -ComObject X509Enrollment.CX509PrivateKey
+ $PrivateKey.ProviderName = "Microsoft Base Cryptographic Provider v1.0"
+ $PrivateKey.KeySpec = 0x2
+ $PrivateKey.Length = $KeyLength
+ $PrivateKey.MachineContext = 0x0
+ if ($PrivateKeyExportable) {
+ 	$PrivateKey.ExportPolicy = 0x1
+ }
+ $PrivateKey.Create()
+ 
+ $Cert = New-Object -ComObject X509Enrollment.CX509CertificateRequestCertificate
+ $Cert.InitializeFromPrivateKey(0x1,$PrivateKey,"")
+ $Cert.Subject = $SubjectDN
+ $Cert.Issuer = $Cert.Subject
+ $Cert.NotBefore = $NotBefore
+ $Cert.NotAfter = $NotAfter
+ $Cert.X509Extensions.Add($EKU)
+ $Cert.Encode()
+ 
+ $Request = New-Object -ComObject X509Enrollment.CX509enrollment
+ $Request.InitializeFromRequest($Cert)
+ $endCert = $Request.CreateRequest(0x1)
+ $Request.InstallResponse(0x2,$endCert,0x1,"")
+ 
+ if ($CreateTrust) {
+   [Byte[]]$bytes = [System.Convert]::FromBase64String($endCert)
+  foreach ($Container in "Root", "TrustedPublisher") {
+   $x509store = New-Object Security.Cryptography.X509Certificates.X509Store $Container, "CurrentUser"
+   $x509store.Open([Security.Cryptography.X509Certificates.OpenFlags]::ReadWrite)
+   $x509store.Add([Security.Cryptography.X509Certificates.X509Certificate2]$bytes)
+   $x509store.Close()
+  }
+ }
+
+}
+
+
+
+
+# SIG # Begin signature block
+# MIITOQYJKoZIhvcNAQcCoIITKjCCEyYCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
+# gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUzmQNWWA6vBSsDBKdI7tRpZ4s
+# tHCggg9CMIIB/zCCAWigAwIBAgIQR9r/nqGXNLRDrRASx0JYmzANBgkqhkiG9w0B
+# AQUFADAaMRgwFgYDVQQDDA9UZXN0Q2VydERTZWNrZXIwHhcNMTkwMzE5MTQxMzM3
+# WhcNMjAwMzE4MTQxMzM3WjAaMRgwFgYDVQQDDA9UZXN0Q2VydERTZWNrZXIwgZ8w
+# DQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAM0YvhwJzUSJa3s8IHlgYgfuSFypNzkP
+# GVsdp1Dgvusj4SsCx1EDEO1Jnvo6canLEdFjgRC6f69Ps875vQZBoct6dwN/VrJq
+# KALyYcsziWLYIceEioaGzeiOPiMUdqFsKa7p2CzHNtw2cRbD2IMVRILYh0NeI+zS
+# yPBOls5Y/py1AgMBAAGjRjBEMBMGA1UdJQQMMAoGCCsGAQUFBwMDMB0GA1UdDgQW
+# BBS5nnFtSlis/ZdP5pDxw0xPATqA3jAOBgNVHQ8BAf8EBAMCB4AwDQYJKoZIhvcN
+# AQEFBQADgYEACK+cp7cCbvBNK/ifrh7UZth0/xhI+cIz7cOq/IwkLy5o1ca+VVOm
+# 8w1lDxyM0o9cywNiUObyfQQEIHfukXj24iDglWO9o7dFelpmmjSAsmVgQ9DQp04g
+# OKB3X6oPQosJKyHWFlELqnSjm3FgAAsvxze5UbEuB5cTRi+2OF57I2MwggZqMIIF
+# UqADAgECAhADAZoCOv9YsWvW1ermF/BmMA0GCSqGSIb3DQEBBQUAMGIxCzAJBgNV
+# BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
+# Y2VydC5jb20xITAfBgNVBAMTGERpZ2lDZXJ0IEFzc3VyZWQgSUQgQ0EtMTAeFw0x
+# NDEwMjIwMDAwMDBaFw0yNDEwMjIwMDAwMDBaMEcxCzAJBgNVBAYTAlVTMREwDwYD
+# VQQKEwhEaWdpQ2VydDElMCMGA1UEAxMcRGlnaUNlcnQgVGltZXN0YW1wIFJlc3Bv
+# bmRlcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKNkXfx8s+CCNeDg
+# 9sYq5kl1O8xu4FOpnx9kWeZ8a39rjJ1V+JLjntVaY1sCSVDZg85vZu7dy4XpX6X5
+# 1Id0iEQ7Gcnl9ZGfxhQ5rCTqqEsskYnMXij0ZLZQt/USs3OWCmejvmGfrvP9Enh1
+# DqZbFP1FI46GRFV9GIYFjFWHeUhG98oOjafeTl/iqLYtWQJhiGFyGGi5uHzu5uc0
+# LzF3gTAfuzYBje8n4/ea8EwxZI3j6/oZh6h+z+yMDDZbesF6uHjHyQYuRhDIjegE
+# YNu8c3T6Ttj+qkDxss5wRoPp2kChWTrZFQlXmVYwk/PJYczQCMxr7GJCkawCwO+k
+# 8IkRj3cCAwEAAaOCAzUwggMxMA4GA1UdDwEB/wQEAwIHgDAMBgNVHRMBAf8EAjAA
+# MBYGA1UdJQEB/wQMMAoGCCsGAQUFBwMIMIIBvwYDVR0gBIIBtjCCAbIwggGhBglg
+# hkgBhv1sBwEwggGSMCgGCCsGAQUFBwIBFhxodHRwczovL3d3dy5kaWdpY2VydC5j
+# b20vQ1BTMIIBZAYIKwYBBQUHAgIwggFWHoIBUgBBAG4AeQAgAHUAcwBlACAAbwBm
+# ACAAdABoAGkAcwAgAEMAZQByAHQAaQBmAGkAYwBhAHQAZQAgAGMAbwBuAHMAdABp
+# AHQAdQB0AGUAcwAgAGEAYwBjAGUAcAB0AGEAbgBjAGUAIABvAGYAIAB0AGgAZQAg
+# AEQAaQBnAGkAQwBlAHIAdAAgAEMAUAAvAEMAUABTACAAYQBuAGQAIAB0AGgAZQAg
+# AFIAZQBsAHkAaQBuAGcAIABQAGEAcgB0AHkAIABBAGcAcgBlAGUAbQBlAG4AdAAg
+# AHcAaABpAGMAaAAgAGwAaQBtAGkAdAAgAGwAaQBhAGIAaQBsAGkAdAB5ACAAYQBu
+# AGQAIABhAHIAZQAgAGkAbgBjAG8AcgBwAG8AcgBhAHQAZQBkACAAaABlAHIAZQBp
+# AG4AIABiAHkAIAByAGUAZgBlAHIAZQBuAGMAZQAuMAsGCWCGSAGG/WwDFTAfBgNV
+# HSMEGDAWgBQVABIrE5iymQftHt+ivlcNK2cCzTAdBgNVHQ4EFgQUYVpNJLZJMp1K
+# Knkag0v0HonByn0wfQYDVR0fBHYwdDA4oDagNIYyaHR0cDovL2NybDMuZGlnaWNl
+# cnQuY29tL0RpZ2lDZXJ0QXNzdXJlZElEQ0EtMS5jcmwwOKA2oDSGMmh0dHA6Ly9j
+# cmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRENBLTEuY3JsMHcGCCsG
+# AQUFBwEBBGswaTAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+# MEEGCCsGAQUFBzAChjVodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNl
+# cnRBc3N1cmVkSURDQS0xLmNydDANBgkqhkiG9w0BAQUFAAOCAQEAnSV+GzNNsiaB
+# XJuGziMgD4CH5Yj//7HUaiwx7ToXGXEXzakbvFoWOQCd42yE5FpA+94GAYw3+pux
+# nSR+/iCkV61bt5qwYCbqaVchXTQvH3Gwg5QZBWs1kBCge5fH9j/n4hFBpr1i2fAn
+# PTgdKG86Ugnw7HBi02JLsOBzppLA044x2C/jbRcTBu7kA7YUq/OPQ6dxnSHdFMoV
+# XZJB2vkPgdGZdA0mxA5/G7X1oPHGdwYoFenYk+VVFvC7Cqsc21xIJ2bIo4sKHOWV
+# 2q7ELlmgYd3a822iYemKC23sEhi991VUQAOSK2vCUcIKSK+w1G7g9BQKOhvjjz3K
+# r2qNe9zYRDCCBs0wggW1oAMCAQICEAb9+QOWA63qAArrPye7uhswDQYJKoZIhvcN
+# AQEFBQAwZTELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcG
+# A1UECxMQd3d3LmRpZ2ljZXJ0LmNvbTEkMCIGA1UEAxMbRGlnaUNlcnQgQXNzdXJl
+# ZCBJRCBSb290IENBMB4XDTA2MTExMDAwMDAwMFoXDTIxMTExMDAwMDAwMFowYjEL
+# MAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcGA1UECxMQd3d3
+# LmRpZ2ljZXJ0LmNvbTEhMB8GA1UEAxMYRGlnaUNlcnQgQXNzdXJlZCBJRCBDQS0x
+# MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6IItmfnKwkKVpYBzQHDS
+# nlZUXKnE0kEGj8kz/E1FkVyBn+0snPgWWd+etSQVwpi5tHdJ3InECtqvy15r7a2w
+# cTHrzzpADEZNk+yLejYIA6sMNP4YSYL+x8cxSIB8HqIPkg5QycaH6zY/2DDD/6b3
+# +6LNb3Mj/qxWBZDwMiEWicZwiPkFl32jx0PdAug7Pe2xQaPtP77blUjE7h6z8rwM
+# K5nQxl0SQoHhg26Ccz8mSxSQrllmCsSNvtLOBq6thG9IhJtPQLnxTPKvmPv2zkBd
+# XPao8S+v7Iki8msYZbHBc63X8djPHgp0XEK4aH631XcKJ1Z8D2KkPzIUYJX9BwSi
+# CQIDAQABo4IDejCCA3YwDgYDVR0PAQH/BAQDAgGGMDsGA1UdJQQ0MDIGCCsGAQUF
+# BwMBBggrBgEFBQcDAgYIKwYBBQUHAwMGCCsGAQUFBwMEBggrBgEFBQcDCDCCAdIG
+# A1UdIASCAckwggHFMIIBtAYKYIZIAYb9bAABBDCCAaQwOgYIKwYBBQUHAgEWLmh0
+# dHA6Ly93d3cuZGlnaWNlcnQuY29tL3NzbC1jcHMtcmVwb3NpdG9yeS5odG0wggFk
+# BggrBgEFBQcCAjCCAVYeggFSAEEAbgB5ACAAdQBzAGUAIABvAGYAIAB0AGgAaQBz
+# ACAAQwBlAHIAdABpAGYAaQBjAGEAdABlACAAYwBvAG4AcwB0AGkAdAB1AHQAZQBz
+# ACAAYQBjAGMAZQBwAHQAYQBuAGMAZQAgAG8AZgAgAHQAaABlACAARABpAGcAaQBD
+# AGUAcgB0ACAAQwBQAC8AQwBQAFMAIABhAG4AZAAgAHQAaABlACAAUgBlAGwAeQBp
+# AG4AZwAgAFAAYQByAHQAeQAgAEEAZwByAGUAZQBtAGUAbgB0ACAAdwBoAGkAYwBo
+# ACAAbABpAG0AaQB0ACAAbABpAGEAYgBpAGwAaQB0AHkAIABhAG4AZAAgAGEAcgBl
+# ACAAaQBuAGMAbwByAHAAbwByAGEAdABlAGQAIABoAGUAcgBlAGkAbgAgAGIAeQAg
+# AHIAZQBmAGUAcgBlAG4AYwBlAC4wCwYJYIZIAYb9bAMVMBIGA1UdEwEB/wQIMAYB
+# Af8CAQAweQYIKwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5k
+# aWdpY2VydC5jb20wQwYIKwYBBQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0
+# LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RDQS5jcnQwgYEGA1UdHwR6MHgwOqA4
+# oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJv
+# b3RDQS5jcmwwOqA4oDaGNGh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2Vy
+# dEFzc3VyZWRJRFJvb3RDQS5jcmwwHQYDVR0OBBYEFBUAEisTmLKZB+0e36K+Vw0r
+# ZwLNMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6enIZ3zbcgPMA0GCSqGSIb3DQEB
+# BQUAA4IBAQBGUD7Jtygkpzgdtlspr1LPUukxR6tWXHvVDQtBs+/sdR90OPKyXGGi
+# nJXDUOSCuSPRujqGcq04eKx1XRcXNHJHhZRW0eu7NoR3zCSl8wQZVann4+erYs37
+# iy2QwsDStZS9Xk+xBdIOPRqpFFumhjFiqKgz5Js5p8T1zh14dpQlc+Qqq8+cdkvt
+# X8JLFuRLcEwAiR78xXm8TBJX/l/hHrwCXaj++wc4Tw3GXZG5D2dFzdaD7eeSDY2x
+# aYxP+1ngIw/Sqq4AfO6cQg7PkdcntxbuD8O9fAqg7iwIVYUiuOsYGk38KiGtSTGD
+# R5V3cdyxG0tLHBCcdxTBnU8vWpUIKRAmMYIDYTCCA10CAQEwLjAaMRgwFgYDVQQD
+# DA9UZXN0Q2VydERTZWNrZXICEEfa/56hlzS0Q60QEsdCWJswCQYFKw4DAhoFAKB4
+# MBgGCisGAQQBgjcCAQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQB
+# gjcCAQQwHAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkE
+# MRYEFAsM0TBqgk1BUOTTLceCR6YLnWmcMA0GCSqGSIb3DQEBAQUABIGAGTqwjRuD
+# S69Iv5Qmm+RN0Mxnx8BDr+RY9A8lIDc/o8Ki5oZ1wTWhtKD1ryG+ludO1wAxrt88
+# IXhGOPNTe9JAMfgbBrZ1Oa+Fn3AVgEoZU0JQLLCBzq86V5hhQyQni/Thcqwg0ya/
+# 4y7GenJrkveyhHAFJ6u46yEYnjPMoxg/ir6hggIPMIICCwYJKoZIhvcNAQkGMYIB
+# /DCCAfgCAQEwdjBiMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5j
+# MRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSEwHwYDVQQDExhEaWdpQ2VydCBB
+# c3N1cmVkIElEIENBLTECEAMBmgI6/1ixa9bV6uYX8GYwCQYFKw4DAhoFAKBdMBgG
+# CSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE5MDMyMDEz
+# MzgxNFowIwYJKoZIhvcNAQkEMRYEFOTICVAyGtyuFck5Swk87mHwbu6WMA0GCSqG
+# SIb3DQEBAQUABIIBAHcRaKVj5z0n/6h+KVNeuF77efq3PC1GnE0wdccP1YwpxkQP
+# KooYPZknDIbAey2/f3UHq6TCP20rkikiHbRJ4HhVGEjChMMgjtXAl3eT9OzN8Wjo
+# NEn1EcOPxtcj8wzm1RRrlv+AGEPuyAKqdHvAu16Vu7D6qbYydg0/H0chfzBDNDIc
+# o9jHAMxZp0KBCzssziYkpePD5a9kJQbcPHcA5MktfmPEzDlw3gplnIQO+p8c22cO
+# 5B5jaZHIbdX1WuDpFFbK0c7BdpvkNIvA0Bfyw+9WbPsr8UCA1Rsh1c708EpmXIzd
+# vOoj5kxRvMq3Esyv5hgoBaFAvL/lhfaF18lJf5M=
+# SIG # End signature block
